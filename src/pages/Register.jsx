@@ -1,7 +1,11 @@
+import { updateProfile } from "firebase/auth";
 import React, { useEffect, useRef, useState } from "react";
+import toast from "react-hot-toast";
 import { IoEye, IoEyeOff } from "react-icons/io5";
 import { MdOutlineInsertPhoto } from "react-icons/md";
 import { useLocation, useNavigate } from "react-router-dom";
+import auth from "../config/firebase.config";
+import useAuth from "../hooks/useAuth";
 
 const Register = () => {
 
@@ -9,7 +13,50 @@ const location = useLocation();
 const navigate = useNavigate();
 const [show, setShow] = useState(false);
 const from = location?.state || '/';
-const inputRef = useRef(null)
+const inputRef = useRef(null);
+
+const {emailPassRegister} = useAuth();
+
+
+const handleEmailPassRegister = (e) =>{
+  e.preventDefault();
+
+  const name = e.target.name.value;
+  const photo = e.target.photo.value;
+  const email = e.target.email.value;
+  const password = e.target.password.value;
+  const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z]).*$/;
+
+  if(password.length < 6){
+      toast.error('Password must be 6 characters long!');
+      return;
+  }
+
+  if(!passwordRegex.test(password)){
+      toast.error('Password must be strong!');
+      return;
+  }
+
+  emailPassRegister(email,password)
+  .then(res => {
+      updateProfile(auth.currentUser,{
+          displayName: name,
+          photoURL: photo,
+      })
+      .then(res => {
+          toast.success('Successfully Registered!');
+          e.target.reset();
+          navigate('/')
+      })
+  })
+  .catch(error => {
+      if(error.code === 'auth/email-already-in-use'){
+          toast.error('User already exist!');
+          return;
+      }
+      toast.error('Something went wrong!')
+  })
+}
 
 useEffect(()=>{
   inputRef.current.focus();
@@ -67,11 +114,12 @@ useEffect(()=>{
       </Swiper> */}
     </div>
     <div className="w-full h-full flex flex-col items-center justify-center">
-      <div className="bg-[#E3B57766] rounded-full w-20 h-20 mx-auto flex items-center justify-center p-3 border border-[#E3B57780] mb-5">
-        <img src="https://i.postimg.cc/g2D01RLY/e0179338c5e93a78b31ecec8e2cb6ef2.png" alt="logo.png" />
-      </div>
-      <h1 className="text-4xl font-bold mb-3 font-rancho">Register to JohuCoffee</h1>
-<form className="flex flex-col items-center justify-center w-full  gap-5" >
+      {/* <div className="bg-[#E3B57766] rounded-full w-20 h-20 mx-auto flex items-center justify-center p-3 border border-[#E3B57780] mb-5">
+        <img src="logo.png" alt="logo.png" className="p-1"/>
+      </div> */}
+      <h1 className="text-3xl font-bold mb-1 font-rancho">Register to JohuCoffee</h1>
+      <p className="font-medium text-[#737D8C] mb-10 font-raleway text-center">Already Registered? <span className="text-gray-800 hover:underline" onClick={()=>navigate('/login')}> Login Here</span></p>
+<form onSubmit={handleEmailPassRegister} className="flex flex-col items-center justify-center w-full  gap-5" >
 
 <label class="input input-bordered flex items-center gap-2 lg:w-[60%] md:w-[70%] w-[80%] mx-auto">
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="w-4 h-4 opacity-70"><path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6ZM12.735 14c.618 0 1.093-.561.872-1.139a6.002 6.002 0 0 0-11.215 0c-.22.578.254 1.139.872 1.139h9.47Z" /></svg>
@@ -102,10 +150,9 @@ useEffect(()=>{
   <span className='text-gray-500'>Accept our terms and conditions</span>
   </div>
 <button type="submit" className="lg:w-[60%] md:w-[70%] w-[80%] mx-auto bg-primary px-10 py-2 rounded-md text-white font-bold font-raleway">REGISTER</button>
+<p className="font-medium text-[#737D8C] mb-3 font-raleway text-xs">By continuing, you agree JohuArt's<span className="text-gray-800 hover:underline" onClick={()=>navigate('/register')}> Terms of Service and Privacy Policy.</span></p>
 </form>
-<div className="w-full">
-  <p className="font-medium text-[#737D8C] my-3 font-raleway text-center">Already Registered? <span className="text-gray-800 hover:underline" onClick={()=>navigate('/login')}> Login Here</span></p>
-</div>
+
 
     </div>
 

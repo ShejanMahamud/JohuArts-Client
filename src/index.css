@@ -4,3 +4,23 @@
 :root {
   --swiper-theme-color: #ff5733;
 }
+::selection {
+  background-color: #ff5733;
+  color: white;
+}
+#frame {
+  position: relative;
+  padding: 0;
+  margin: 0;
+  border: solid 15px #555;
+  /* max-width: 300px; */
+  /* margin: 40px auto; */
+  /* box-shadow: -3px -3px 12px #999; */
+}
+#border {
+  position: relative;
+  padding: 0;
+  margin: 0;
+  border: solid 20px white;
+  box-shadow: -3px -3px 12px #999;
+}
