@@ -1,23 +1,60 @@
+import axios from "axios";
 import React from "react";
 import toast from "react-hot-toast";
 import { BiCategoryAlt } from "react-icons/bi";
 import { FaRegStar } from "react-icons/fa";
 import { FaPencil } from "react-icons/fa6";
-import { IoPricetagOutline, IoTimeOutline } from "react-icons/io5";
+import { IoImageOutline, IoPricetagOutline, IoTimeOutline } from "react-icons/io5";
 import { MdOutlineTitle } from "react-icons/md";
 import { SlEnvolope } from "react-icons/sl";
+import { Tooltip } from "react-tooltip";
+import useAuth from "../hooks/useAuth";
 
 const AddArts = () => {
-  const handleAddEstate = (e) => {
+
+const {user} = useAuth();
+
+  const handleAddArt = (e) => {
     e.preventDefault();
-    toast.success("Estate Added Successfully!");
-    e.target.reset();
+    const item_name = e.target.title.value;
+    const short_description = e.target.description.value;
+    const subcategory_name = e.target.subcategory.value;
+    const image = e.target.photo.value;
+    const price = e.target.price.value;
+    const rating = e.target.rating.value;
+    const customization = e.target.customization.value;
+    const processing_time = e.target.time.value;
+    const stock_status = e.target.stock.value;
+    const user_name = e.target.username.value;
+    const user_email = e.target.useremail.value;
+    const art = {item_name,short_description,subcategory_name,price,rating,customization,processing_time,stock_status,user_name,user_email,image}
+
+    if(customization === "Customizable Art?"){
+      toast.error('Please select customization!');
+      return;
+    }
+
+    if(stock_status === "Stock"){
+      toast.error('Please select stock');
+      return;
+    }
+
+    axios.post('http://localhost:7284/arts',art)
+    .then(res => {
+      if(res.data.insertedId){
+        e.target.reset();
+        toast.success('Successfully Added Your Art!')
+      }
+    })
+    .catch(error => {
+      toast.error('Something Went Wrong!')
+    })
   };
 
   return (
     <form
       className="w-full py-20 font-poppins flex items-center flex-col bg-[url('https://i.postimg.cc/66FBrVVq/add-bg.png')] bg-no-repeat bg-cover bg-center"
-      onSubmit={handleAddEstate}
+      onSubmit={handleAddArt}
     >
       <div className="flex flex-col items-start gap-2 w-[90%] mx-auto mb-10">
         <h1 className="text-primary font-medium">Add Arts & Crafts</h1>
@@ -54,6 +91,16 @@ const AddArts = () => {
               required
             />
             <FaPencil className="text-primary text-xl opacity-70" />
+          </label>
+          <label class="input input-bordered flex items-center justify-between gap-2 mb-3">
+            <input
+              type="text"
+              class="py-5 grow"
+              placeholder="* Photo URL"
+              name="photo"
+              required
+            />
+            <IoImageOutline className="text-primary text-xl opacity-70" />
           </label>
           <label class="input input-bordered flex items-center justify-between gap-2 mb-3">
             <input
@@ -116,6 +163,7 @@ const AddArts = () => {
               class="grow"
               name="username"
               placeholder="* UserName"
+              defaultValue={user?.displayName}
               required
             />
             <svg
@@ -127,13 +175,14 @@ const AddArts = () => {
               <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6ZM12.735 14c.618 0 1.093-.561.872-1.139a6.002 6.002 0 0 0-11.215 0c-.22.578.254 1.139.872 1.139h9.47Z" />
             </svg>
           </label>
-          <label class="input input-bordered flex items-center justify-between gap-2 mb-3">
+          <label class="input input-bordered flex items-center justify-between gap-2 mb-3" data-tooltip-id="email" data-tooltip-content={`You can't change email!`}>
             <input
               type="text"
               class="py-5 grow"
               placeholder="* User Email"
-              name="email"
-              required
+              name="useremail"
+              disabled
+              value={user?.email}
             />
             <SlEnvolope className="text-primary text-xl opacity-70" />
           </label>
@@ -141,8 +190,9 @@ const AddArts = () => {
       </div>
 
       <button className="uppercase bg-primary text-white font-bold text-lg px-5 py-3 rounded-md">
-        Submit estate
+        Submit Art
       </button>
+      <Tooltip id="email"/>
     </form>
   );
 };

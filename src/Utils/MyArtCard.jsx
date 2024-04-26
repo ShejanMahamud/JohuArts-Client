@@ -1,27 +1,39 @@
-import React from 'react'
+import Aos from 'aos';
+import "aos/dist/aos.css";
+import React, { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
-const MyArtCard = () => {
+const MyArtCard = ({myArt}) => {
+const navigate = useNavigate();
+const {image,item_name, subcategory_name,short_description,rating,customization,processing_time,stock_status,_id,price} = myArt;
+
+  useEffect(() => {
+    Aos.init();
+    Aos.refresh();
+}, []);
+
   return (
-    <div className="w-full border border-gray-400 border-opacity-50 rounded-md px-5 py-5 flex flex-col items-center justify-center relative group">
+    <div className="w-full border border-gray-400 border-opacity-50 rounded-md px-5 py-5 flex flex-col items-center justify-center relative group" data-aos="fade-up">
     <div id="frame" className="w-full overflow-hidden">
         <img
-          src="http://www.notshaw.com/raindropskeepfalling/wp-content/gallery/drawings-2013/2013-08-06-14-38-35.jpg"
+          src={image}
           alt="Drawing"
           className="border-t-2 border-b border-l-2 border-r border-gray-400 w-full object-cover group-hover:scale-110 duration-500"
         />
     </div>
     <div className="w-full mt-5">
-      <h1 className="font-semibold text-xl">Sleepy Women Portrait</h1>
-      <span className="text-xs mb-4">Water Color Art</span>
-      <p className="text-sm my-3">Women with sleepy face water color portrait and some touch of oil color and charcoal</p>
+      <h1 className="font-semibold text-xl">{item_name}</h1>
+      <span className="text-xs mb-4">{subcategory_name}</span>
+      <p className="text-sm my-3">{short_description}</p>
       <div className="flex items-start flex-col flex-wrap gap-x-5 gap-y-1">
-          <span><span className="font-medium">Customize</span>: Yes</span>
-          <span><span className="font-medium">Rating</span>: 4.6</span>
-          <span><span className="font-medium">Stock</span>: In Stock</span>
+          <span><span className="font-medium">Customize</span>: {customization}</span>
+          <span><span className="font-medium">Rating</span>: {rating}</span>
+          <span><span className="font-medium">Stock</span>: {stock_status}</span>
+          <span><span className="font-medium">Processing Time</span>: {processing_time}</span>
       </div>
       <div className="w-full flex items-center justify-between mt-3">
         <span className="uppercase text-primary font-bold text-lg">
-          450 TAKA
+          ${price}
         </span>
         <div className="flex items-center gap-2">
         <button className="px-2 py-2 bg-primary rounded-md">
@@ -30,7 +42,9 @@ const MyArtCard = () => {
 <path fill-rule="evenodd" clip-rule="evenodd" d="M1.1025 9.53917C2.3425 5.81333 5.85667 3.125 10.0008 3.125C14.1425 3.125 17.655 5.81083 18.8967 9.53333C18.9967 9.835 18.9967 10.16 18.8967 10.4608C17.6575 14.1867 14.1425 16.875 9.99917 16.875C5.8575 16.875 2.34417 14.1892 1.10333 10.4667C1.00312 10.1656 1.00312 9.84021 1.10333 9.53917H1.1025ZM14.375 10C14.375 11.1603 13.9141 12.2731 13.0936 13.0936C12.2731 13.9141 11.1603 14.375 10 14.375C8.83968 14.375 7.72688 13.9141 6.90641 13.0936C6.08594 12.2731 5.625 11.1603 5.625 10C5.625 8.83968 6.08594 7.72688 6.90641 6.90641C7.72688 6.08594 8.83968 5.625 10 5.625C11.1603 5.625 12.2731 6.08594 13.0936 6.90641C13.9141 7.72688 14.375 8.83968 14.375 10Z" fill="white"/>
 </svg>
           </button>
-        <button className="bg-gray-400 text-white font-medium uppercase text-sm px-2 py-2 rounded">
+        <button onClick={()=>{
+          navigate(`/update/${_id}`)
+        }} className="bg-gray-400 text-white font-medium uppercase text-sm px-2 py-2 rounded">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="20"

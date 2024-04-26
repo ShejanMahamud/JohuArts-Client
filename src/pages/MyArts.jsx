@@ -1,7 +1,11 @@
 import React from "react";
-import MyArtCard from "../Utils/MyArtCard";
+import useArts from "../hooks/useArts";
+import MyArtCard from "../utils/MyArtCard";
 
 const MyArts = () => {
+
+const {isLoading,myArts,refetch} = useArts();
+
   return (
     <div className="w-full py-20 font-poppins">
       <div className="flex items-center justify-between gap-2 w-[90%] mx-auto ">
@@ -21,9 +25,9 @@ const MyArts = () => {
 </select>
       </div>
       <div className="w-[90%] mx-auto grid grid-cols-3 row-auto items-center gap-10">
-        <MyArtCard/>
-        <MyArtCard/>
-        <MyArtCard/>
+        {
+          myArts.map(myArt => <MyArtCard myArt={myArt}/>)
+        }
       </div>
     </div>
   );
