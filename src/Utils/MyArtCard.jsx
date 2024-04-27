@@ -3,7 +3,7 @@ import "aos/dist/aos.css";
 import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
-import useArts from './../hooks/useArts';
+import useArts from '../hooks/useMyArts';
 const MyArtCard = ({myArt}) => {
 
 const navigate = useNavigate();

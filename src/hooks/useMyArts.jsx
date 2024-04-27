@@ -2,7 +2,7 @@ import {
     useQuery
 } from '@tanstack/react-query';
 import useAuth from "./useAuth";
-const useArts = () => {
+const useMyArts = () => {
 
 const {user} = useAuth();    
 
@@ -19,4 +19,4 @@ return {data,isLoading,refetch,isPending}
 
 };
 
-export default useArts;
+export default useMyArts;

@@ -4,7 +4,7 @@ import ArtCard from '../utils/ArtCard';
 
 const Arts = () => {
 
-const arts = useContext(DataContext)
+const {data: arts} = useContext(DataContext)
 
   return (
     <div className="w-full py-20 font-poppins">

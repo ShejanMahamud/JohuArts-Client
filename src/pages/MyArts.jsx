@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { TbPhotoOff } from "react-icons/tb";
-import useArts from "../hooks/useArts";
+import useMyArts from "../hooks/useMyArts";
 import MyArtCard from "../utils/MyArtCard";
 
 const MyArts = () => {
-  const { data: allMyArts, isLoading, isPending } = useArts();
+  const { data: allMyArts, isLoading, isPending } = useMyArts();
   const [customize, setCustomize] = useState('');
   const [myArts, setMyArts] = useState([]);
   const [dataFetched, setDataFetched] = useState(false);

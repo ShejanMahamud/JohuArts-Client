@@ -1,7 +1,6 @@
 import axios from "axios";
 import React from "react";
 import toast from "react-hot-toast";
-import { BiCategoryAlt } from "react-icons/bi";
 import { FaRegStar } from "react-icons/fa";
 import { FaPencil } from "react-icons/fa6";
 import { IoImageOutline, IoPricetagOutline, IoTimeOutline } from "react-icons/io5";
@@ -102,16 +101,14 @@ const {user} = useAuth();
             />
             <IoImageOutline className="text-primary text-xl opacity-70" />
           </label>
-          <label class="input input-bordered flex items-center justify-between gap-2 mb-3">
-            <input
-              type="text"
-              class="py-5 grow"
-              name="subcategory"
-              placeholder="* Subcategory"
-              required
-            />
-            <BiCategoryAlt className="text-primary text-xl opacity-70" />
-          </label>
+          <select name="subcategory" className="select select-bordered w-full ">
+  <option disabled selected className="text-gray-400">Subcategory</option>
+  <option>Landscape Painting</option>
+  <option>Watercolour Painting</option>
+  <option>Oil Painting</option>
+  <option>Charcoal Sketching</option>
+  <option>Cartoon Drawing</option>
+</select>
           <label class="input input-bordered flex items-center justify-between gap-2 mb-3">
             <input
               type="text"
