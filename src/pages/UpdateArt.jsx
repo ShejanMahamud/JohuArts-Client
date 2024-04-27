@@ -37,7 +37,7 @@ const {image,item_name, subcategory_name,short_description,rating,customization,
             return;
           }
     
-        axios.patch(`http://localhost:7284/arts/${_id}`,art)
+        axios.patch(`https://johuarts-backend.vercel.app/arts/${_id}`,art)
         .then(res => {
           if(res.data.modifiedCount > 0){
             toast.success('Successfully Updated!')

@@ -12,8 +12,8 @@ import Home from '../pages/Home';
 import Login from '../pages/Login';
 import MyArts from '../pages/MyArts';
 import Register from '../pages/Register';
-import PrivateRoute from './../private/PrivateRoute';
 import UpdateArt from './../pages/UpdateArt';
+import PrivateRoute from './../private/PrivateRoute';
 const Route = createBrowserRouter([
   {
     path: "/",
@@ -21,7 +21,7 @@ const Route = createBrowserRouter([
     children: [
       {
         path: '/',
-        loader: ()=> axios.get(`http://localhost:7284/arts`),
+        loader: ()=> axios.get(`https://johuarts-backend.vercel.app/arts`),
         element: <Home/>
       },
       {
@@ -38,22 +38,22 @@ const Route = createBrowserRouter([
       },
       {
         path: '/all_arts',
-        loader: ()=> axios.get(`http://localhost:7284/arts`),
+        loader: ()=> axios.get(`https://johuarts-backend.vercel.app/arts`),
         element: <AllArts/>
       },
       {
         path: '/my_arts',
-        element: <MyArts/>
+        element: <PrivateRoute><MyArts/></PrivateRoute>
       },
       {
         path: '/art/:id',
-        loader: ({params})=> axios.get(`http://localhost:7284/art/${params.id}`),
-        element: <ArtDetails/>
+        loader: ({params})=> axios.get(`https://johuarts-backend.vercel.app/art/${params.id}`),
+        element: <PrivateRoute><ArtDetails/></PrivateRoute>
       },
       {
         path: '/update/:id',
-        loader: ({params})=> axios.get(`http://localhost:7284/art/${params.id}`),
-        element: <UpdateArt/>
+        loader: ({params})=> axios.get(`https://johuarts-backend.vercel.app/art/${params.id}`),
+        element: <PrivateRoute><UpdateArt/></PrivateRoute>
       }
     ],
     errorElement: <ErrorPage/>

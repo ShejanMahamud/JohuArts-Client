@@ -1,30 +1,22 @@
-import axios from 'axios';
-import { useEffect, useState } from 'react';
-import useAuth from './useAuth';
-
+import {
+    useQuery
+} from '@tanstack/react-query';
+import useAuth from "./useAuth";
 const useArts = () => {
-const [myArts,setMyArts] = useState([]);
-const [isLoading, setIsLoading] = useState(false);
-const [toggle, setToggle] = useState(false);
-const {user} = useAuth();
-const refetch = () => {
-    setToggle(!toggle)
-}
 
-useEffect(()=>{
-    setIsLoading(true);
-    axios.get(`http://localhost:7284/arts/${user?.email}`)
-    .then(res => {
-        setIsLoading(false)
-        setMyArts(res.data)
-    })
-    .catch(error => {
-        console.log(error)
-    })
-  },[toggle])
-  
-return {isLoading,myArts,refetch};
+const {user} = useAuth();    
 
-}
+const {data,isLoading,refetch,isPending} = useQuery({
+    queryKey: ['myArts'],
+    queryFn: async () => {
+        const res = await fetch(`https://johuarts-backend.vercel.app/arts/${user.email}`)
+        const data = await res.json()
+        return data;
+    }
+});
 
-export default useArts
+return {data,isLoading,refetch,isPending}
+
+};
+
+export default useArts;

@@ -39,7 +39,7 @@ const {user} = useAuth();
       return;
     }
 
-    axios.post('http://localhost:7284/arts',art)
+    axios.post('https://johuarts-backend.vercel.app/arts',art)
     .then(res => {
       if(res.data.insertedId){
         e.target.reset();
