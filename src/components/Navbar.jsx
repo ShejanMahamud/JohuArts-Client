@@ -5,6 +5,7 @@ import { IoIosLogOut } from "react-icons/io";
 import { IoSettingsOutline } from "react-icons/io5";
 import { NavLink, useNavigate } from 'react-router-dom';
 import { Tooltip } from 'react-tooltip';
+import Typewriter from 'typewriter-effect';
 import useAuth from '../hooks/useAuth';
 
 const Navbar = () => {
@@ -89,7 +90,15 @@ const Navbar = () => {
     </div>
     <div onClick={()=>navigate('/')} className='flex items-center gap-2 cursor-pointer'>
     <img src="logo.png" alt="logo.png" className='w-10'/>
-    <span className='font-clickerScript text-3xl font-semibold'>JohuArts</span>
+    <span className='font-clickerScript text-3xl font-semibold flex items-center gap-1'>Johu
+<Typewriter
+  options={{
+    strings: ['Arts','Crafts'],
+    autoStart: true,
+    loop: true,
+  }}
+/>
+    </span>
     </div>
   </div>
   <div className="navbar-center hidden lg:flex">

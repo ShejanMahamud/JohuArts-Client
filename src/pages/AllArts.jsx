@@ -1,10 +1,21 @@
 import React from 'react';
-import { useLoaderData, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import useArts from '../hooks/useArts';
 
 const AllArts = () => {
 
-const {data} = useLoaderData();
+const {data,isPending} = useArts();
 const navigate = useNavigate();
+
+if (isPending) {
+  return (
+    <div className="flex items-center justify-center space-x-2 min-h-screen w-full">
+      <div className="w-4 h-4 rounded-full animate-pulse dark:bg-primary bg-primary"></div>
+      <div className="w-4 h-4 rounded-full animate-pulse dark:bg-primary bg-primary"></div>
+      <div className="w-4 h-4 rounded-full animate-pulse dark:bg-primary bg-primary"></div>
+    </div>
+  );
+}
 
   return (
     <div className='w-full py-20 font-poppins'>

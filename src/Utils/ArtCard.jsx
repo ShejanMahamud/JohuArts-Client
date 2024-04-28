@@ -19,19 +19,20 @@ const {image,item_name, subcategory_name,short_description,rating,customization,
 }, []);
 
   return (
-    <div className="w-full border border-gray-400 border-opacity-50 rounded-md px-5 py-5 flex flex-col items-center justify-between relative group font-poppins" data-aos="fade-up">
+    <div className="w-full border border-gray-400 border-opacity-50 rounded-md px-5 py-5 flex flex-row gap-10 items-center justify-between relative group font-poppins" data-aos="fade-up">
     <div id="frame" className="w-full overflow-hidden h-[300px]">
         <img
           src={image}
           alt="Drawing"
+          loading='lazy'
           className="border-t-2 border-b border-l-2 border-r border-gray-400 w-full object-cover group-hover:scale-110 duration-500 h-full"
         />
     </div>
-    <div className="w-full mt-5 flex flex-col justify-stretch">
+    <div className="w-full mt-5 flex flex-col justify-between">
       <h1 className="font-semibold text-xl">{item_name}</h1>
-      <span className="text-xs mb-4">{subcategory_name}</span>
-      <p className="text-sm my-3">{short_description}</p>
-      <div className="flex items-center gap-5">
+      <span className="text-xs mb-3">{subcategory_name}</span>
+      <p className="text-sm mt-3 mb-5">{short_description}</p>
+      <div className="flex items-center gap-x-5 gap-y-3 flex-wrap">
           {/* <span><span className="font-medium">Customize</span>: Yes</span>
           <span><span className="font-medium">Rating</span>: 4.6</span>
           <span><span className="font-medium">Stock</span>: In Stock</span> */}

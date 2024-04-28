@@ -39,7 +39,7 @@ const Route = createBrowserRouter([
       },
       {
         path: '/all_arts',
-        loader: ()=> axios.get(`https://johuarts-backend.vercel.app/arts`),
+        // loader: ()=> axios.get(`https://johuarts-backend.vercel.app/arts`),
         element: <AllArts/>
       },
       {
