@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 const Footer = () => {
   return (
-    <footer className="px-4 py-5 divide-y bg-[url('animated-shape.svg')] bg-no-repeat bg-cover bg-center text-white">
+    <footer className="px-4 py-5 divide-y bg-[url('news.svg')] bg-no-repeat bg-cover bg-center text-white bg-primary">
 		
 	<div className="container flex flex-col justify-between py-10 mx-auto space-y-8 lg:flex-row lg:space-y-0">
 	<div className='flex flex-col'>
@@ -90,10 +90,8 @@ const Footer = () => {
 			</div>
 		</div>
 	</div>
-	<div className="py-6 text-sm text-center text-gray-600 font-medium font-poppins *:mb-3">
-		<p className='tracking-wider'>© 2024 <Link to={'https://github.com/ShejanMahamud'}><span className='text-[#32B7C5]'>Shejan Mahamud</span></Link> All rights reserved.</p>
-
-		<p className='opacity-50 text-xs'>Design Inspiration From <Link to={'https://quranmazid.com'}><span className='text-[#32B7C5]'>Quran Mazid</span></Link> | <Link to={'https://www.figma.com/community/file/1308277964149255728/quranpersis-co-id'}><span className='text-[#32B7C5]'>Lafidz Tafara</span></Link></p>
+	<div className="pt-6 text-sm text-center  font-medium font-poppins *:mb-3">
+		<p className='tracking-wider'>© 2024 <Link to={'https://github.com/ShejanMahamud'}><span className=''>Shejan Mahamud</span></Link> All rights reserved.</p>
 	</div>
 </footer>
   )

@@ -37,16 +37,16 @@ const {image,item_name, subcategory_name,short_description,rating,customization,
           <span><span className="font-medium">Rating</span>: 4.6</span>
           <span><span className="font-medium">Stock</span>: In Stock</span> */}
           <div className='flex items-center gap-2' data-tooltip-id="customize" data-tooltip-content='Customization'>
-            <FaPaintRoller className='text-lg text-primary'/> <span className='text-base'>{customization}</span>
+            <FaPaintRoller className='text-lg text-gray-400'/> <span className='text-base'>{customization}</span>
           </div>
           <div className='flex items-center gap-2' data-tooltip-id="stock" data-tooltip-content='Stock'>
-            <IoCheckmarkSharp className='text-lg  text-primary'/> <span className='text-base'>{stock_status}</span>
+            <IoCheckmarkSharp className='text-lg  text-gray-400'/> <span className='text-base'>{stock_status}</span>
           </div>
           <div className='flex items-center gap-2' data-tooltip-id="time" data-tooltip-content='Processing Time'>
-            <IoTimeOutline className='text-lg  text-primary'/> <span className='text-base'>{processing_time}</span>
+            <IoTimeOutline className='text-lg  text-gray-400'/> <span className='text-base'>{processing_time}</span>
           </div>
           <div className='flex items-center gap-2' data-tooltip-id="rating" data-tooltip-content='Rating'>
-            <FaStar className='text-lg  text-primary'/> <span className='text-base'>{rating}</span>
+            <FaStar className='text-lg  text-gray-400'/> <span className='text-base'>{rating}</span>
           </div>
       </div>
       <div className="w-full flex items-center justify-between mt-5">

@@ -24,7 +24,6 @@ const Banner = () => {
             <p className="text-black opacity-80 lg:w-[40%] md:w-[40%] w-[90%] mb-10 lg:text-base md:text-base font-poppins text-base">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aspernatur inventore quaerat hic ab magnam consectetur qui, perferendis officiis deserunt natus.</p>
             <button className="bg-primary px-4 py-3 text-base font-poppins text-white font-medium uppercase rounded">Explore Arts</button>
           </div>
-
         </SwiperSlide>
         <SwiperSlide>
           <div className="bg-[url('https://i.ibb.co/SxwVzKJ/slider2-ed88e0f0-9323-45d5-bb44-fb1a02930634.webp')] bg-cover bg-no-repeat bg-center w-full lg:h-[600px]  md:h-[600px] h-[700px] flex  flex-col justify-center lg:px-20 px-10 pt-10 items-start">

@@ -89,7 +89,7 @@ const Navbar = () => {
       </ul>
     </div>
     <div onClick={()=>navigate('/')} className='flex items-center gap-2 cursor-pointer'>
-    <img src="logo.png" alt="logo.png" className='w-10'/>
+    <img src="https://i.ibb.co/2YWcrgN/art-and-design.png" alt="logo.png" className='w-10'/>
     <span className='font-clickerScript text-3xl font-semibold flex items-center gap-1'>Johu
 <Typewriter
   options={{
@@ -185,7 +185,7 @@ const Navbar = () => {
 </div>
 }
     {
-      user ? <button className="hover:bg-primary border border-primary duration-700 hover:text-white px-4 py-2 rounded-md font-medium flex items-center gap-1 uppercase text-primary">
+      user ? <button onClick={handleLogOut} className="hover:bg-primary border border-primary duration-700 hover:text-white px-4 py-2 rounded-md font-medium flex items-center gap-1 uppercase text-primary">
       Logout</button>
       : 
       <div className='flex items-center gap-2'>

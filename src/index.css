@@ -9,7 +9,8 @@ input[type="number"]::-webkit-outer-spin-button {
   appearance: none;
   margin: 0;
 }
-.mySwiper {
+.mySwiper,
+.reviewSwiper {
   --swiper-theme-color: #ff5733;
   /* --swiper-pagination-bottom: 0px; */
 }

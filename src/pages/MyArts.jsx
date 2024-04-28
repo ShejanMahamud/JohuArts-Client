@@ -1,46 +1,51 @@
 import React, { useEffect, useState } from "react";
 import { TbPhotoOff } from "react-icons/tb";
-import useMyArts from "../hooks/useMyArts";
+import useAuth from "../hooks/useAuth";
 import MyArtCard from "../utils/MyArtCard";
 
 const MyArts = () => {
-  const { data: allMyArts, isLoading, isPending } = useMyArts();
-  const [customize, setCustomize] = useState('');
-  const [myArts, setMyArts] = useState([]);
-  const [dataFetched, setDataFetched] = useState(false);
 
-  useEffect(() => {
-    if (allMyArts) {
-      if (customize === 'Yes') {
-        const customizableArt = allMyArts.filter(myArt => myArt.customization === 'Yes');
-        setMyArts(customizableArt);
-      } else if (customize === 'No') {
-        const nonCustomizableArt = allMyArts.filter(myArt => myArt.customization === 'No');
-        setMyArts(nonCustomizableArt);
-      } else {
-        setMyArts(allMyArts);
-      }
-      setDataFetched(true);
+  const [myArts, setMyArts] = useState([]);
+  const [customize, setCustomize] = useState(null);
+  const [dataFetched, setDataFetched] = useState(false)
+  const {user} = useAuth();
+
+  useEffect(()=>{
+    setDataFetched(true);
+    fetch(`https://johuarts-backend.vercel.app/arts/${user?.email}`)
+    .then(res => res.json())
+    .then(data => {
+      setTimeout(()=>{
+        setDataFetched(false);
+      },1000)
+      setMyArts(data);
+    })
+  },[user])
+
+useEffect(()=>{
+  fetch(`https://johuarts-backend.vercel.app/customization/${customize}`)
+  .then(res => res.json())
+  .then(data => {
+    if(data.length >0){
+      setMyArts(data)
+    }else{
+      return <div className="flex items-center justify-center space-x-2 min-h-screen w-full">
+      <div className="w-4 h-4 rounded-full animate-pulse dark:bg-primary bg-primary"></div>
+      <div className="w-4 h-4 rounded-full animate-pulse dark:bg-primary bg-primary"></div>
+      <div className="w-4 h-4 rounded-full animate-pulse dark:bg-primary bg-primary"></div>
+    </div>
     }
-  }, [customize, allMyArts]);
+  })
+},[customize])
 
   const handleCustomize = (e) => {
-    setCustomize(e.target.value);
+    setCustomize(e.target.value)
   }
-
-  if (isPending) {
-    return (
-      <div className="flex items-center justify-center space-x-2 min-h-screen w-full">
-        <div className="w-4 h-4 rounded-full animate-pulse dark:bg-primary bg-primary"></div>
-        <div className="w-4 h-4 rounded-full animate-pulse dark:bg-primary bg-primary"></div>
-        <div className="w-4 h-4 rounded-full animate-pulse dark:bg-primary bg-primary"></div>
-      </div>
-    );
-  }
+  
 
   return (
     <>
-      {isLoading ? (
+      {dataFetched ? (
         <div className="flex items-center justify-center space-x-2 min-h-screen w-full">
           <div className="w-4 h-4 rounded-full animate-pulse dark:bg-primary bg-primary"></div>
           <div className="w-4 h-4 rounded-full animate-pulse dark:bg-primary bg-primary"></div>
@@ -62,7 +67,7 @@ const MyArts = () => {
               onChange={handleCustomize}
               className="select select-bordered w-48"
             >
-              <option>
+              <option selected disabled>
                 Sort By - Customization
               </option>
               <option>Yes</option>

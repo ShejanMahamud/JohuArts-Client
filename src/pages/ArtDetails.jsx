@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { BsCart2 } from "react-icons/bs";
 import { useLoaderData, useNavigate } from "react-router-dom";
 import { Tab, TabList, TabPanel, Tabs } from "react-tabs";
@@ -11,6 +11,7 @@ const ArtDetails = () => {
   const navigate = useNavigate();
   const {user} = useAuth()
   const { data } = useLoaderData();
+  const [isLoading, setIsLoading] = useState(true)
   const {data: userArtCount,isPending} = useMyArts();
   const {
     image,
@@ -27,9 +28,15 @@ const ArtDetails = () => {
     user_email
   } = data;
 
+  useEffect(()=>{
+    setTimeout(()=>{
+      setIsLoading(false)
+    },1000)
+  },[data])
+
   const previousPrice = Math.floor(Math.random() * 100) + 1;
 
-  if (isPending) {
+  if (isPending || isLoading) {
     return (
       <div className="flex items-center justify-center space-x-2 min-h-screen w-full">
         <div className="w-4 h-4 rounded-full animate-pulse dark:bg-primary bg-primary"></div>
@@ -54,13 +61,13 @@ const ArtDetails = () => {
         >
           <path
             d="M19.5 12H4.5M4.5 12L11.25 18.75M4.5 12L11.25 5.25"
-            stroke="#331A15"
+            stroke="#fff"
             stroke-width="1.5"
             stroke-linecap="round"
             stroke-linejoin="round"
           />
         </svg>
-        <span className="text-[#331A15] text-base font-medium">
+        <span className=" text-base font-medium">
           Back to home
         </span>
       </div>
@@ -116,7 +123,7 @@ const ArtDetails = () => {
             <div className="h-[20px] w-[2px] border border-primary border-opacity-30 rounded-full"></div>
             <ReviewStar rating={parseFloat(rating)} />
             <div className="h-[20px] w-[2px] border border-primary border-opacity-30 rounded-full"></div>
-            <p className="text-sm font-medium">100+ Reviews</p>
+            <p className="text-sm font-medium">{previousPrice}+ Reviews</p>
           </div>
           <h1 className="font-semibold uppercase mb-3">Description</h1>
           <ul className="list-disc pl-5 text-sm mb-5">
