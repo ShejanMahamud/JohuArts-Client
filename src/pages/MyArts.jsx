@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
+import { IoIosArrowRoundBack } from "react-icons/io";
 import { TbPhotoOff } from "react-icons/tb";
+import { useNavigate } from "react-router-dom";
 import useAuth from "../hooks/useAuth";
 import MyArtCard from "../utils/MyArtCard";
 
@@ -7,8 +9,10 @@ const MyArts = () => {
 
   const [myArts, setMyArts] = useState([]);
   const [customize, setCustomize] = useState(null);
-  const [dataFetched, setDataFetched] = useState(false)
+  const [dataFetched, setDataFetched] = useState(false);
+  const [updatedArts, setUpdatedArts] = useState(false)
   const {user} = useAuth();
+const navigate = useNavigate();
 
   useEffect(()=>{
     setDataFetched(true);
@@ -20,7 +24,7 @@ const MyArts = () => {
       },1000)
       setMyArts(data);
     })
-  },[user])
+  },[user,updatedArts])
 
 useEffect(()=>{
   fetch(`https://johuarts-backend.vercel.app/customization/${customize}`)
@@ -53,6 +57,15 @@ useEffect(()=>{
         </div>
       ) : (
         <div className="w-full py-20 font-poppins">
+          <div
+        onClick={() => navigate("/")}
+        className="flex items-center w-[90%] mx-auto mb-10 cursor-pointer"
+      >
+        <IoIosArrowRoundBack className="text-2xl"/>
+        <span className=" text-base font-medium">
+          Back to home
+        </span>
+      </div>
           <div className="flex items-center justify-between gap-2 w-[90%] mx-auto ">
             <div className="flex flex-col items-start gap-2 mb-20">
               <h1 className="text-primary font-medium">My Arts & Crafts</h1>
@@ -80,9 +93,9 @@ useEffect(()=>{
               <span className="font-bold text-3xl">No Arts Found!</span>
             </div>
           ) : (
-            <div className="w-[90%] mx-auto grid grid-cols-2 row-auto items-stretch gap-10">
+            <div className="w-[90%] mx-auto grid lg:grid-cols-2 md:grid-cols-2 grid-cols-1 row-auto items-stretch gap-10">
               {myArts.map((myArt) => (
-                <MyArtCard key={myArt._id} myArt={myArt} />
+                <MyArtCard key={myArt._id} myArt={myArt} updatedArts={updatedArts} setUpdatedArts={setUpdatedArts}/>
               ))}
             </div>
           )}

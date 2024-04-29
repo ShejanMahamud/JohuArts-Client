@@ -28,7 +28,7 @@ if (isPending) {
           Art is something that can recharge your mind
         </p>
       </div>
-      <div className='w-full grid grid-cols-6 row-auto items-center gap-10 my-10'>
+      <div className='w-full grid lg:grid-cols-6 grid-cols-2 md:grid-cols-3 row-auto items-center gap-10 my-10'>
         {
             categories.map(category => (
                 <div key={category._id} className='flex flex-col items-center gap-2'>

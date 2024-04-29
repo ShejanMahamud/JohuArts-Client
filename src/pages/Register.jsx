@@ -64,54 +64,8 @@ useEffect(()=>{
 
   return (
     <div className="w-full grid lg:grid-cols-2 md:grid-cols-2 grid-cols-1 row-auto items-center gap-10 border-t border-b border-[#CDD6E1] font-poppins">
-    <div className="w-full bg-primary min-h-screen bg-[url('login-3.png')] bg-no-repeat bg-contain bg-center pt-10 lg:flex md:flex items-center justify-center hidden">
-      {/* <Swiper
-        pagination={{
-          dynamicBullets: true,
-        }}
-        modules={[Pagination]}
-        className="loginSwiper"
-      >
-        <SwiperSlide>
-          <div className="w-[50%] mx-auto">
-            <img
-              src="https://i.ibb.co/6gh94sW/login-1.jpg"
-              alt="login.jpg"
-              className="w-full mb-3"
-              style={{ borderRadius: "50px 50px 10px 50px" }}
-            />
-            <h1 className="text-center text-white font-bold lg:text-2xl md:text-xl mb-5">
-              Find Your Perfect Cottage With JohuHousing
-            </h1>
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div className="w-[50%] mx-auto">
-            <img
-              src="https://i.ibb.co/6gh94sW/login-1.jpg"
-              alt="login.jpg"
-              className="w-full h-full mb-3"
-              style={{ borderRadius: "50px 50px 10px 50px" }}
-            />
-            <h1 className="text-center text-white font-bold lg:text-2xl md:text-xl">
-              Find Your Perfect Place With JohuHousing
-            </h1>
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div className="w-[50%] mx-auto">
-            <img
-              src="https://i.ibb.co/6gh94sW/login-1.jpg"
-              alt="login.jpg"
-              className="w-full mb-3 h-full"
-              style={{ borderRadius: "50px 50px 10px 50px" }}
-            />
-            <h1 className="text-center text-white font-bold lg:text-2xl md:text-xl">
-              Find Your Apartments With JohuHousing
-            </h1>
-          </div>
-        </SwiperSlide>
-      </Swiper> */}
+    <div className="w-full bg-primary min-h-screen bg-[url('https://i.ibb.co/7YSz5Ps/login-3.png')] bg-no-repeat bg-contain bg-center pt-10 lg:flex md:flex items-center justify-center hidden">
+      
     </div>
     <div className="w-full h-full flex flex-col items-center justify-center">
       {/* <div className="bg-[#E3B57766] rounded-full w-20 h-20 mx-auto flex items-center justify-center p-3 border border-[#E3B57780] mb-5">

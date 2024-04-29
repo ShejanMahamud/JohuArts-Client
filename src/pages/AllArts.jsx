@@ -1,4 +1,5 @@
 import React from 'react';
+import { IoIosArrowRoundBack } from "react-icons/io";
 import { useNavigate } from 'react-router-dom';
 import useArts from '../hooks/useArts';
 
@@ -18,7 +19,16 @@ if (isPending) {
 }
 
   return (
-    <div className='w-full py-20 font-poppins'>
+    <div className="w-full py-20 font-poppins bg-[url('https://i.postimg.cc/66FBrVVq/add-bg.png')] bg-no-repeat bg-cover bg-center">
+      <div
+        onClick={() => navigate("/")}
+        className="flex items-center w-[90%] mx-auto mb-10 cursor-pointer"
+      >
+        <IoIosArrowRoundBack className="text-2xl"/>
+        <span className=" text-base font-medium">
+          Back to home
+        </span>
+      </div>
         <div className="flex flex-col items-start gap-2 w-[90%] mx-auto mb-10">
         <h1 className="text-primary font-medium">All Arts & Crafts</h1>
         <span className=" font-bold lg:text-3xl md:text-xl text-lg">
@@ -29,7 +39,7 @@ if (isPending) {
         </p>
       </div>
       <div className="w-[90%] mx-auto my-20">
-  <table className="table flex items-center justify-center">
+  <table className="lg:table md:table lg:flex md:flex items-center justify-center hidden">
     <thead>
       <tr>
         <th>Art Details</th>
@@ -73,6 +83,35 @@ if (isPending) {
 }
     </tbody>  
   </table>
+  <div className="overflow-x-auto lg:hidden">
+  <table className="table">
+    {/* head */}
+    <thead>
+      <tr>
+      <th>Art Name</th>
+        <th>Art Rating</th>
+        <th>Art Price</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+
+      {
+        data.map(art => (
+        <tr>
+        <td>{art?.item_name}</td>
+        <td>{art?.rating}</td>
+        <td>{art?.price}</td>
+        <td><button onClick={()=>{
+        navigate(`/art/${art?._id}`)
+      }} className="bg-primary text-white font-medium uppercase text-xs px-2 py-1 rounded">details</button></td>
+      </tr>
+        ))
+      }
+      
+    </tbody>
+  </table>
+</div>
 </div>
     </div>
   )

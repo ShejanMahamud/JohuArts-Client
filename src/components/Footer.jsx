@@ -1,100 +1,128 @@
 import React from 'react';
-import { BiSolidDonateHeart } from "react-icons/bi";
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 const Footer = () => {
+
   return (
-    <footer className="px-4 py-5 divide-y bg-[url('news.svg')] bg-no-repeat bg-cover bg-center text-white bg-primary">
-		
-	<div className="container flex flex-col justify-between py-10 mx-auto space-y-8 lg:flex-row lg:space-y-0">
-	<div className='flex flex-col'>
-	<div className='flex items-center gap-2'>
-            <div className='bg-white h-14 w-14 rounded-xl flex items-center justify-center'>
-            <img src="logo.png" alt="quran.png" className='w-8'/>
-            </div>
-            <div className='flex flex-col items-start text-white'>
-            <span className={`text-2xl font-mukti`}>JohuArts</span>
-            <span className='text-xs font-mukti'>Art & Crafts</span>
-			
-            </div>
-			
+    <footer className="w-full bg-[#FF5733] md:px-10 px-5 lg:px-40 py-5 flex flex-col gap-8 bg-opacity-5 font-poppins">
+      <div className="flex justify-between items-center">
+	  <div className='w-full flex items-center'>
+        <img src="https://i.ibb.co/2YWcrgN/art-and-design.png" alt="logo.png" className='w-12 '/>
+        <span className='text-xl font-medium'>JohuArts</span>
+    </div>
+        <div className="flex gap-3 lg:gap-10 items-center flex-col lg:flex-row w-full lg:justify-end justify-center">
+          <p className="text-[#494949] font-medium lg:text-base text-sm text-center">
+            Ready to explore houses?
+          </p>
+          <button onClick={()=>window.scroll(0,0)} className="bg-primary lg:px-6 px-4 lg:py-3 py-3 text-white text-sm font-extrabold rounded-lg inline-block">
+            Get Started
+          </button>
         </div>
-		<p className='w-[80%] opacity-70 font-mukti font-sm mt-2 text-white'>Art washes away from the soul the dust of everyday life.</p>
-	</div>
-		<div className="grid grid-cols-2 text-sm gap-x-3 gap-y-8 lg:w-2/3 sm:grid-cols-4">
-			<div className="space-y-3">
-				<h3 className="tracking-wide uppercase text-white font-bold">Features</h3>
-				<ul className="space-y-1 text-gray-300">
-					<li>
-						<p >Read Quran</p>
-					</li>
-					<li>
-						<p>Read Ayah</p>
-					</li>
-					<li>
-						<p >Read Tafsir</p>
-					</li>
-					<li>
-						<p>Listen Audio</p>
-					</li>
-				</ul>
-			</div>
-			<div className="space-y-3">
-				<h3 className="tracking-wide uppercase text-white font-bold">Quick Links</h3>
-				<ul className="space-y-1 text-gray-300">
-				<li>
-						<Link to={`https://github.com/ShejanMahamud`}><p>GitHub</p></Link>
-					</li>
-					<li>
-						<Link to={`https://shejanmahamud.netlify.app`}><p>Portfolio</p></Link>
-					</li>
-					<li>
-						<Link to={`https://github.com/ShejanMahamud`}><p>More Projects</p></Link>
-					</li>
-				</ul>
-			</div>
-			<div className="space-y-3">
-				<h3 className="uppercase text-white font-bold">Important Links</h3>
-				<ul className="space-y-1 text-gray-300">
-				<li>
-						<Link to={`https://github.com/ShejanMahamud/AL-Quran-Web/issues`}><p>Report an Issue</p></Link>
-					</li>
-					<li>
-						<Link to={`https://cdn.jsdelivr.net/gh/ShejanMahamud/AL-Quran-Web@main/public/Surah.json`}><p>Surah Api</p></Link>
-					</li>
-					<li>
-						<Link to={`https://github.com/spa5k/tafsir_api/tree/main/tafsir/bn-tafsir-abu-bakr-zakaria`}><p>Tafsir Api</p></Link>
-					</li>
-				</ul>
-			</div>
-			<div className="space-y-3">
-				<div className="uppercase text-white font-bold">Social media</div>
-				<div className="flex justify-start space-x-3">
-					<a rel="noopener noreferrer" href="https://facebook.com/shejanmahamud.me" title="Facebook" className="flex items-center p-1">
-						<svg xmlns="http://www.w3.org/2000/svg" fill="white" viewBox="0 0 32 32" className="w-5 h-5 fill-white">
-							<path d="M32 16c0-8.839-7.167-16-16-16-8.839 0-16 7.161-16 16 0 7.984 5.849 14.604 13.5 15.803v-11.177h-4.063v-4.625h4.063v-3.527c0-4.009 2.385-6.223 6.041-6.223 1.751 0 3.584 0.312 3.584 0.312v3.937h-2.021c-1.984 0-2.604 1.235-2.604 2.5v3h4.437l-0.713 4.625h-3.724v11.177c7.645-1.199 13.5-7.819 13.5-15.803z"></path>
-						</svg>
-					</a>
-					<a rel="noopener noreferrer" href="https://twitter.com/shejanmahamud.me" title="Twitter" className="flex items-center p-1">
-						<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" className="w-5 h-5 fill-white">
-							<path d="M23.954 4.569a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.691 8.094 4.066 6.13 1.64 3.161a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.061a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.937 4.937 0 004.604 3.417 9.868 9.868 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.054 0 13.999-7.496 13.999-13.986 0-.209 0-.42-.015-.63a9.936 9.936 0 002.46-2.548l-.047-.02z"></path>
-						</svg>
-					</a>
-					<a rel="noopener noreferrer" href="https://instagram.com/shejanmahamud.me" title="Instagram" className="flex items-center p-1">
-						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="white" className="w-5 h-5 fill-white">
-							<path d="M16 0c-4.349 0-4.891 0.021-6.593 0.093-1.709 0.084-2.865 0.349-3.885 0.745-1.052 0.412-1.948 0.959-2.833 1.849-0.891 0.885-1.443 1.781-1.849 2.833-0.396 1.020-0.661 2.176-0.745 3.885-0.077 1.703-0.093 2.244-0.093 6.593s0.021 4.891 0.093 6.593c0.084 1.704 0.349 2.865 0.745 3.885 0.412 1.052 0.959 1.948 1.849 2.833 0.885 0.891 1.781 1.443 2.833 1.849 1.020 0.391 2.181 0.661 3.885 0.745 1.703 0.077 2.244 0.093 6.593 0.093s4.891-0.021 6.593-0.093c1.704-0.084 2.865-0.355 3.885-0.745 1.052-0.412 1.948-0.959 2.833-1.849 0.891-0.885 1.443-1.776 1.849-2.833 0.391-1.020 0.661-2.181 0.745-3.885 0.077-1.703 0.093-2.244 0.093-6.593s-0.021-4.891-0.093-6.593c-0.084-1.704-0.355-2.871-0.745-3.885-0.412-1.052-0.959-1.948-1.849-2.833-0.885-0.891-1.776-1.443-2.833-1.849-1.020-0.396-2.181-0.661-3.885-0.745-1.703-0.077-2.244-0.093-6.593-0.093zM16 2.88c4.271 0 4.781 0.021 6.469 0.093 1.557 0.073 2.405 0.333 2.968 0.553 0.751 0.291 1.276 0.635 1.844 1.197 0.557 0.557 0.901 1.088 1.192 1.839 0.22 0.563 0.48 1.411 0.553 2.968 0.072 1.688 0.093 2.199 0.093 6.469s-0.021 4.781-0.099 6.469c-0.084 1.557-0.344 2.405-0.563 2.968-0.303 0.751-0.641 1.276-1.199 1.844-0.563 0.557-1.099 0.901-1.844 1.192-0.556 0.22-1.416 0.48-2.979 0.553-1.697 0.072-2.197 0.093-6.479 0.093s-4.781-0.021-6.48-0.099c-1.557-0.084-2.416-0.344-2.979-0.563-0.76-0.303-1.281-0.641-1.839-1.199-0.563-0.563-0.921-1.099-1.197-1.844-0.224-0.556-0.48-1.416-0.563-2.979-0.057-1.677-0.084-2.197-0.084-6.459 0-4.26 0.027-4.781 0.084-6.479 0.083-1.563 0.339-2.421 0.563-2.979 0.276-0.761 0.635-1.281 1.197-1.844 0.557-0.557 1.079-0.917 1.839-1.199 0.563-0.219 1.401-0.479 2.964-0.557 1.697-0.061 2.197-0.083 6.473-0.083zM16 7.787c-4.541 0-8.213 3.677-8.213 8.213 0 4.541 3.677 8.213 8.213 8.213 4.541 0 8.213-3.677 8.213-8.213 0-4.541-3.677-8.213-8.213-8.213zM16 21.333c-2.948 0-5.333-2.385-5.333-5.333s2.385-5.333 5.333-5.333c2.948 0 5.333 2.385 5.333 5.333s-2.385 5.333-5.333 5.333zM26.464 7.459c0 1.063-0.865 1.921-1.923 1.921-1.063 0-1.921-0.859-1.921-1.921 0-1.057 0.864-1.917 1.921-1.917s1.923 0.86 1.923 1.917z"></path>
-						</svg>
-					</a>
-				</div>
-				<Link to={'https://shop.bkash.com/fragshopbd01933368281/paymentlink'}><button className='bg-[#32B7C5] px-4 py-2 rounded-lg text-white flex items-center gap-3 font-bold my-3'><BiSolidDonateHeart className='text-2xl'/>Support</button></Link>
-			</div>
-		</div>
-	</div>
-	<div className="pt-6 text-sm text-center  font-medium font-poppins *:mb-3">
-		<p className='tracking-wider'>© 2024 <Link to={'https://github.com/ShejanMahamud'}><span className=''>Shejan Mahamud</span></Link> All rights reserved.</p>
-	</div>
-</footer>
-  )
+      </div>
+      <div className="lg:grid-cols-4 md:grid-cols-2 grid-cols-1 row-auto grid items-center justify-center gap-10">
+        <div>
+          <h1 className="text-[#1c1c1c] text-xl font-semibold mb-4">Quick Links</h1>
+          <ul className="flex flex-col gap-2 text-[#494949] font-medium">
+            <li><NavLink to="/">Home</NavLink></li>
+            <li><NavLink to="/login">Login</NavLink></li>
+            <li><NavLink to="/register">Register</NavLink></li>
+            <li><NavLink to="/all_arts">Arts</NavLink></li>
+          </ul>
+        </div>
+        <div>
+          <h1 className="text-[#1c1c1c] text-xl font-semibold mb-4">Our Services</h1>
+          <ul className="flex flex-col gap-2 text-[#494949] font-medium">
+            <li><a href="">Sell</a></li>
+            <li><a href="">Buy</a></li>
+            <li><a href="">Add Art</a></li>
+            <li><a href="">Art Competition</a></li>
+          </ul>
+        </div>
+        <div>
+          <h1 className="text-[#1c1c1c] text-xl font-semibold mb-4">Help</h1>
+          <ul className="flex flex-col gap-2 text-[#494949] font-medium">
+            <li><a href="">FAQ</a></li>
+            <li><a href="">About Us</a></li>
+            <li><a href="">Contact Us</a></li>
+            <li><a href="">Privacy POlicy</a></li>
+          </ul>
+        </div>
+        <div className="flex flex-col gap-4 w-[70%] lg:w-full">
+          <h1 className="text-[#1c1c1c] text-xl font-semibold mb-3">Subscribe to our newsletter</h1>
+          <div className="flex flex-col gap-8">
+            <div className="flex items-start flex-col gap-3">
+              <div className="flex items-center justify-between w-full">
+                <input
+                  type="text"
+                  placeholder="Enter Your Email"
+                  className="bg-transparent focus:outline-none placeholder:font-medium placeholder:text-[#494949]"
+                />
+                <div className="bg-primary rounded-full h-6 w-6 flex items-center justify-center">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="18"
+                    height="18"
+                    viewBox="0 0 18 18"
+                    fill="none"
+                  >
+                    <path
+                      d="M6.91406 3.92432L12.1315 9.14171L6.91406 14.3591"
+                      stroke="white"
+                      strokeWidth="1.5"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                </div>
+              </div>
+              <hr className="h-[3px] w-full bg-[#494949] rounded-full opacity-30" />
+            </div>
+            <div className="flex items-center gap-6">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="25"
+                viewBox="0 0 24 25"
+                fill="none"
+              >
+                <path
+                  d="M14 13.6411H16.5L17.5 9.64111H14V7.64111C14 6.61111 14 5.64111 16 5.64111H17.5V2.28111C17.174 2.23811 15.943 2.14111 14.643 2.14111C11.928 2.14111 10 3.79811 10 6.84111V9.64111H7V13.6411H10V22.1411H14V13.6411Z"
+                  fill="#494949"
+                />
+              </svg>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="25"
+                viewBox="0 0 24 25"
+                fill="none"
+              >
+                <path
+                  d="M22.1623 5.79802C21.3989 6.13571 20.5893 6.35749 19.7603 6.45602C20.634 5.93345 21.288 5.11103 21.6003 4.14202C20.7803 4.63002 19.8813 4.97202 18.9443 5.15702C18.3149 4.4836 17.4807 4.03698 16.5713 3.8866C15.6618 3.73622 14.7282 3.89051 13.9156 4.32547C13.1029 4.76043 12.4567 5.4517 12.0774 6.29181C11.6981 7.13192 11.607 8.0738 11.8183 8.97102C10.1554 8.88767 8.52863 8.45554 7.04358 7.70268C5.55854 6.94982 4.24842 5.89306 3.1983 4.60102C2.82659 5.23947 2.63125 5.96524 2.6323 6.70402C2.6323 8.15402 3.3703 9.43502 4.4923 10.185C3.82831 10.1641 3.17893 9.9848 2.5983 9.66202V9.71402C2.5985 10.6797 2.93267 11.6156 3.54414 12.3631C4.15562 13.1105 5.00678 13.6235 5.9533 13.815C5.33691 13.9821 4.6906 14.0067 4.0633 13.887C4.33016 14.7183 4.8503 15.4452 5.55089 15.9661C6.25147 16.487 7.09742 16.7758 7.9703 16.792C7.10278 17.4733 6.10947 17.977 5.04718 18.2742C3.98488 18.5714 2.87442 18.6563 1.7793 18.524C3.69099 19.7534 5.91639 20.4061 8.1893 20.404C15.8823 20.404 20.0893 14.031 20.0893 8.50402C20.0893 8.32402 20.0843 8.14202 20.0763 7.96402C20.8952 7.37218 21.6019 6.63904 22.1633 5.79902L22.1623 5.79802Z"
+                  fill="#494949"
+                />
+              </svg>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="25"
+                viewBox="0 0 24 25"
+                fill="none"
+              >
+                <path
+                  d="M12 2.14111C14.717 2.14111 15.056 2.15111 16.122 2.20111C17.187 2.25111 17.912 2.41811 18.55 2.66611C19.21 2.92011 19.766 3.26411 20.322 3.81911C20.8305 4.31901 21.224 4.9237 21.475 5.59111C21.722 6.22811 21.89 6.95411 21.94 8.01911C21.987 9.08511 22 9.42411 22 12.1411C22 14.8581 21.99 15.1971 21.94 16.2631C21.89 17.3281 21.722 18.0531 21.475 18.6911C21.2247 19.3589 20.8311 19.9637 20.322 20.4631C19.822 20.9714 19.2173 21.3649 18.55 21.6161C17.913 21.8631 17.187 22.0311 16.122 22.0811C15.056 22.1281 14.717 22.1411 12 22.1411C9.283 22.1411 8.944 22.1311 7.878 22.0811C6.813 22.0311 6.088 21.8631 5.45 21.6161C4.78233 21.3656 4.17753 20.9721 3.678 20.4631C3.16941 19.9633 2.77593 19.3586 2.525 18.6911C2.277 18.0541 2.11 17.3281 2.06 16.2631C2.013 15.1971 2 14.8581 2 12.1411C2 9.42411 2.01 9.08511 2.06 8.01911C2.11 6.95311 2.277 6.22911 2.525 5.59111C2.77524 4.92329 3.1688 4.31843 3.678 3.81911C4.17767 3.31034 4.78243 2.91684 5.45 2.66611C6.088 2.41811 6.812 2.25111 7.878 2.20111C8.944 2.15411 9.283 2.14111 12 2.14111ZM12 7.14111C10.6739 7.14111 9.40215 7.6679 8.46447 8.60558C7.52678 9.54326 7 10.815 7 12.1411C7 13.4672 7.52678 14.739 8.46447 15.6766C9.40215 16.6143 10.6739 17.1411 12 17.1411C13.3261 17.1411 14.5979 16.6143 15.5355 15.6766C16.4732 14.739 17 13.4672 17 12.1411C17 10.815 16.4732 9.54326 15.5355 8.60558C14.5979 7.6679 13.3261 7.14111 12 7.14111ZM18.5 6.89111C18.5 6.55959 18.3683 6.24165 18.1339 6.00723C17.8995 5.77281 17.5815 5.64111 17.25 5.64111C16.9185 5.64111 16.6005 5.77281 16.3661 6.00723C16.1317 6.24165 16 6.55959 16 6.89111C16 7.22263 16.1317 7.54058 16.3661 7.775C16.6005 8.00942 16.9185 8.14111 17.25 8.14111C17.5815 8.14111 17.8995 8.00942 18.1339 7.775C18.3683 7.54058 18.5 7.22263 18.5 6.89111ZM12 9.14111C12.7956 9.14111 13.5587 9.45718 14.1213 10.0198C14.6839 10.5824 15 11.3455 15 12.1411C15 12.9368 14.6839 13.6998 14.1213 14.2624C13.5587 14.825 12.7956 15.1411 12 15.1411C11.2044 15.1411 10.4413 14.825 9.87868 14.2624C9.31607 13.6998 9 12.9368 9 12.1411C9 11.3455 9.31607 10.5824 9.87868 10.0198C10.4413 9.45718 11.2044 9.14111 12 9.14111Z"
+                  fill="#494949"
+                />
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+      <span className="mt-5 text-center font-bold text-[#494949] tracking-wide">
+        © 2024 - All rights reserved By JohuArts
+      </span>
+    </footer>
+  );
 }
 
-export default Footer
+export default Footer;

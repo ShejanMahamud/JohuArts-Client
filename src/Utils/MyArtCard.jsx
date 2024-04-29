@@ -4,7 +4,7 @@ import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import useArts from '../hooks/useMyArts';
-const MyArtCard = ({myArt}) => {
+const MyArtCard = ({myArt,setUpdatedArts,updatedArts}) => {
 
 const navigate = useNavigate();
 const {image,item_name, subcategory_name,short_description,rating,customization,processing_time,stock_status,_id,price} = myArt;
@@ -28,7 +28,8 @@ const handleDelete = (id) => {
       .then(res => res.json())
       .then(data => {
         if(data.deletedCount > 0){
-          refetch()
+          refetch();
+          setUpdatedArts(!updatedArts)
           Swal.fire({
             title: "Deleted!",
             text: "Your file has been deleted.",
@@ -51,7 +52,7 @@ const handleDelete = (id) => {
         <img
           src={image}
           alt="Drawing"
-          className="border-t-2 border-b border-l-2 border-r border-gray-400 w-full object-cover group-hover:scale-110 duration-500"
+          className="border-t-2 border-b border-l-2 border-r border-gray-400 w-full object-cover group-hover:scale-110 duration-500 h-[300px]"
         />
     </div>
     <div className="w-full mt-5">

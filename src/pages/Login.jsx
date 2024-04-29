@@ -43,7 +43,7 @@ const Login = () => {
 
   return (
     <div className="w-full grid lg:grid-cols-2 md:grid-cols-2 grid-cols-1 row-auto items-center gap-10 border-t border-b border-[#CDD6E1] font-poppins">
-      <div className="w-full bg-primary min-h-screen bg-[url('login-2.png')] bg-no-repeat bg-contain bg-center pt-10 lg:flex md:flex items-center justify-center hidden">
+      <div className="w-full bg-primary min-h-screen bg-[url('https://i.ibb.co/qdgQrt1/login-2.png')] bg-no-repeat bg-contain bg-center pt-10 lg:flex md:flex items-center justify-center hidden">
         {/* <Swiper
         pagination={{
           dynamicBullets: true,

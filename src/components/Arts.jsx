@@ -1,4 +1,5 @@
 import React from 'react';
+import { TbPhotoOff } from "react-icons/tb";
 import useArts from '../hooks/useArts';
 import ArtCard from '../utils/ArtCard';
 
@@ -29,9 +30,15 @@ if (isPending) {
       </p>
       </div>
     </div>
-    <div className="w-[90%] mx-auto grid grid-cols-2 row-auto items-stretch gap-10">
+    <div className="w-[90%] mx-auto grid lg:grid-cols-2 grid-cols-1 row-auto items-stretch gap-10">
       {
-        arts.map(art => <ArtCard art={art}/>)
+        arts.length !== 0 ? 
+          arts.map(art => <ArtCard art={art}/>)
+        : 
+        <div className="w-full flex items-center justify-center flex-col gap-5 col-span-2">
+              <TbPhotoOff className="text-5xl text-primary" />
+              <span className="font-bold text-3xl">No Arts Found!</span>
+            </div>
       }
     </div>
   </div>

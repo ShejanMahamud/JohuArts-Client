@@ -19,7 +19,7 @@ const {image,item_name, subcategory_name,short_description,rating,customization,
 }, []);
 
   return (
-    <div className="w-full border border-gray-400 border-opacity-50 rounded-md px-5 py-5 flex flex-row gap-10 items-center justify-between relative group font-poppins" data-aos="fade-up">
+    <div className="w-full border border-gray-400 border-opacity-50 rounded-md px-5 py-5 flex lg:flex-row flex-col md:flex-row lg:gap-10 md:gap-10 gap-5 items-center justify-between relative group font-poppins" data-aos="fade-up">
     <div id="frame" className="w-full overflow-hidden h-[300px]">
         <img
           src={image}

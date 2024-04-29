@@ -3,15 +3,18 @@ import React from "react";
 import toast from "react-hot-toast";
 import { FaRegStar } from "react-icons/fa";
 import { FaPencil } from "react-icons/fa6";
+import { IoIosArrowRoundBack } from "react-icons/io";
 import { IoImageOutline, IoPricetagOutline, IoTimeOutline } from "react-icons/io5";
 import { MdOutlineTitle } from "react-icons/md";
 import { SlEnvolope } from "react-icons/sl";
+import { useNavigate } from "react-router-dom";
 import { Tooltip } from "react-tooltip";
 import useAuth from "../hooks/useAuth";
 
 const AddArts = () => {
 
 const {user} = useAuth();
+const navigate = useNavigate();
 
   const handleAddArt = (e) => {
     e.preventDefault();
@@ -26,10 +29,16 @@ const {user} = useAuth();
     const stock_status = e.target.stock.value;
     const user_name = e.target.username.value;
     const user_email = e.target.useremail.value;
-    const art = {item_name,short_description,subcategory_name,price,rating,customization,processing_time,stock_status,user_name,user_email,image}
+    const user_photo = user?.photoURL;
+    const art = {item_name,short_description,subcategory_name,price,rating,customization,processing_time,stock_status,user_name,user_email,image,user_photo}
 
     if(customization === "Customizable Art?"){
       toast.error('Please select customization!');
+      return;
+    }
+
+    if(subcategory_name === "Subcategory"){
+      toast.error('Please select Subcategory!');
       return;
     }
 
@@ -55,6 +64,15 @@ const {user} = useAuth();
       className="w-full py-20 font-poppins flex items-center flex-col bg-[url('https://i.postimg.cc/66FBrVVq/add-bg.png')] bg-no-repeat bg-cover bg-center"
       onSubmit={handleAddArt}
     >
+      <div
+        onClick={() => navigate("/")}
+        className="flex items-center w-[90%] mx-auto mb-10 cursor-pointer"
+      >
+        <IoIosArrowRoundBack className="text-2xl"/>
+        <span className=" text-base font-medium">
+          Back to home
+        </span>
+      </div>
       <div className="flex flex-col items-start gap-2 w-[90%] mx-auto mb-10">
         <h1 className="text-primary font-medium">Add Arts & Crafts</h1>
         <span className="text-gray-800 font-bold lg:text-3xl md:text-xl text-lg">
@@ -69,8 +87,8 @@ const {user} = useAuth();
         <p className="text-[#737D8C] text-sm">
           These fields are mandatory: Title, Property Media, Description
         </p>
-        <h1 className="text-xl font-bold my-3">1. Art Description</h1>
-        <div className="grid grid-cols-2 row-auto items-center gap-x-20 gap-y-5 my-5">
+        <h1 className="text-xl font-bold my-5">1. Art Description</h1>
+        <div className="grid lg:grid-cols-2 md:grid-cols-2 grid-cols-1 row-auto items-center gap-x-20 gap-y-5 my-5">
           <label class="input input-bordered flex items-center justify-between gap-2 mb-3">
             <input
               type="text"
@@ -153,7 +171,7 @@ const {user} = useAuth();
 
         </div>
         <h1 className="text-xl font-bold mt-10 mb-3">2. User Details</h1>
-        <div className="grid grid-cols-2 row-auto items-center gap-x-20 gap-y-5 my-5">
+        <div className="grid lg:grid-cols-2 md:grid-cols-2 grid-cols-1 row-auto items-center gap-x-20 gap-y-5 my-5">
           <label class="input input-bordered flex items-center justify-between gap-2 mb-3">
             <input
               type="text"

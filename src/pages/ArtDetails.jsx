@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { BsCart2 } from "react-icons/bs";
+import { IoIosArrowRoundBack } from "react-icons/io";
 import { useLoaderData, useNavigate } from "react-router-dom";
 import { Tab, TabList, TabPanel, Tabs } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
+import { Tooltip } from "react-tooltip";
 import useAuth from "../hooks/useAuth";
 import useMyArts from "../hooks/useMyArts";
 import ReviewStar from "./../utils/ReviewStar";
@@ -50,29 +52,15 @@ const ArtDetails = () => {
     <div className="w-[90%] mx-auto py-20 font-poppins">
       <div
         onClick={() => navigate("/")}
-        className="flex items-center gap-2 w-full mx-auto mb-10 cursor-pointer"
+        className="flex items-center w-full mx-auto mb-10 cursor-pointer"
       >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-          fill="none"
-        >
-          <path
-            d="M19.5 12H4.5M4.5 12L11.25 18.75M4.5 12L11.25 5.25"
-            stroke="#fff"
-            stroke-width="1.5"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          />
-        </svg>
+        <IoIosArrowRoundBack className="text-2xl"/>
         <span className=" text-base font-medium">
           Back to home
         </span>
       </div>
-      <div className="grid lg:grid-cols-2 grid-cols-1 row-auto gap-10 lg:gap-x-20 items-start w-full">
-        <div className="grid grid-cols-2 row-auto items-center gap-5 w-full">
+      <div className="grid lg:grid-cols-2  grid-cols-1 row-auto gap-10 lg:gap-x-20 items-start w-full">
+        <div className="grid lg:grid-cols-2 md:grid-cols-2 grid-cols-1 row-auto items-center gap-5 w-full">
           <img
             src={image}
             alt="art.jpg"
@@ -108,10 +96,10 @@ const ArtDetails = () => {
         </div>
         <div className="flex flex-col items-start w-full">
           <div className="flex items-center gap-3">
-            <span className="bg-primary px-3 py-1 rounded-md text-white font-medium text-xs mb-3">
+            <span data-tooltip-id="stock" data-tooltip-content="Stock Status" className="bg-primary px-3 py-1 rounded-md text-white font-medium text-xs mb-3">
               {stock_status}
             </span>
-            <span className="bg-primary px-3 py-1 rounded-md text-white font-medium text-xs mb-3">
+            <span data-tooltip-id="shipping" data-tooltip-content="Shipping" className="bg-primary px-3 py-1 rounded-md text-white font-medium text-xs mb-3">
               Free
             </span>
           </div>
@@ -191,12 +179,12 @@ const ArtDetails = () => {
             <p className="my-5">{short_description}</p>
           </TabPanel>
           <TabPanel>
-            <div className="flex items-center gap-5 my-10">
+            <div className="flex items-center gap-5 my-10 lg:flex-row md:flex-row flex-col">
                 <div className="flex flex-col items-center gap-3">
                 <img src={user?.photoURL || 'https://i.ibb.co/Lxvz266/user-1.png'} alt="user.png" className="h-40 w-40 rounded-full border-2 border-primary"/>
                 <p className="font-medium">{userArtCount.length} Products</p>
                 </div>
-                <div className="flex flex-col items-start gap-2">
+                <div className="flex flex-col lg:items-start md:items-start items-center gap-2">
                     <p className="font-medium">{user_name}</p>
                     <p>{user_email}</p>
                 </div>
@@ -204,6 +192,8 @@ const ArtDetails = () => {
           </TabPanel>
         </Tabs>
       </div>
+      <Tooltip id="stock"/>
+      <Tooltip id="shipping"/>
     </div>
   );
 };
