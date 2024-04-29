@@ -10,7 +10,7 @@ const Reviews = () => {
     <div className="w-full my-20 py-10 font-poppins">
       <div className="flex flex-col items-start gap-2 w-[90%] mx-auto mb-10">
         <h1 className="text-primary font-medium">Customer Testimonials</h1>
-        <span className="text-gray-800 font-bold lg:text-3xl md:text-xl text-lg">
+        <span className=" font-bold lg:text-3xl md:text-xl text-lg">
           Hear what our customers have to say
         </span>
         <p className="text-[#737D8C] w-[60%] text-sm">

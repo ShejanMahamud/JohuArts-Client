@@ -11,7 +11,7 @@ const Footer = () => {
         <span className='text-xl font-medium'>JohuArts</span>
     </div>
         <div className="flex gap-3 lg:gap-10 items-center flex-col lg:flex-row w-full lg:justify-end justify-center">
-          <p className="text-[#494949] font-medium lg:text-base text-sm text-center">
+          <p className=" font-medium lg:text-base text-sm text-center">
             Ready to explore houses?
           </p>
           <button onClick={()=>window.scroll(0,0)} className="bg-primary lg:px-6 px-4 lg:py-3 py-3 text-white text-sm font-extrabold rounded-lg inline-block">
@@ -21,8 +21,8 @@ const Footer = () => {
       </div>
       <div className="lg:grid-cols-4 md:grid-cols-2 grid-cols-1 row-auto grid items-center justify-center gap-10">
         <div>
-          <h1 className="text-[#1c1c1c] text-xl font-semibold mb-4">Quick Links</h1>
-          <ul className="flex flex-col gap-2 text-[#494949] font-medium">
+          <h1 className=" text-xl font-semibold mb-4">Quick Links</h1>
+          <ul className="flex flex-col gap-2  font-medium">
             <li><NavLink to="/">Home</NavLink></li>
             <li><NavLink to="/login">Login</NavLink></li>
             <li><NavLink to="/register">Register</NavLink></li>
@@ -30,8 +30,8 @@ const Footer = () => {
           </ul>
         </div>
         <div>
-          <h1 className="text-[#1c1c1c] text-xl font-semibold mb-4">Our Services</h1>
-          <ul className="flex flex-col gap-2 text-[#494949] font-medium">
+          <h1 className=" text-xl font-semibold mb-4">Our Services</h1>
+          <ul className="flex flex-col gap-2  font-medium">
             <li><a href="">Sell</a></li>
             <li><a href="">Buy</a></li>
             <li><a href="">Add Art</a></li>
@@ -39,8 +39,8 @@ const Footer = () => {
           </ul>
         </div>
         <div>
-          <h1 className="text-[#1c1c1c] text-xl font-semibold mb-4">Help</h1>
-          <ul className="flex flex-col gap-2 text-[#494949] font-medium">
+          <h1 className="text-xl font-semibold mb-4">Help</h1>
+          <ul className="flex flex-col gap-2 font-medium">
             <li><a href="">FAQ</a></li>
             <li><a href="">About Us</a></li>
             <li><a href="">Contact Us</a></li>
@@ -48,7 +48,7 @@ const Footer = () => {
           </ul>
         </div>
         <div className="flex flex-col gap-4 w-[70%] lg:w-full">
-          <h1 className="text-[#1c1c1c] text-xl font-semibold mb-3">Subscribe to our newsletter</h1>
+          <h1 className=" text-xl font-semibold mb-3">Subscribe to our newsletter</h1>
           <div className="flex flex-col gap-8">
             <div className="flex items-start flex-col gap-3">
               <div className="flex items-center justify-between w-full">
@@ -118,7 +118,7 @@ const Footer = () => {
           </div>
         </div>
       </div>
-      <span className="mt-5 text-center font-bold text-[#494949] tracking-wide">
+      <span className="mt-5 text-center font-medium  tracking-wide">
         © 2024 - All rights reserved By JohuArts
       </span>
     </footer>

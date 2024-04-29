@@ -18,8 +18,8 @@ if (isPending) {
 }
 
   return (
-    <div className='w-[90%] mx-auto py-10 font-poppins'>
-        <div className="flex flex-col items-start gap-2 mb-10">
+    <div className="bg-[url('shape-2.svg')] bg-no-repeat w-full bg-right-top py-10 font-poppins">
+        <div className="flex flex-col items-start gap-2 mb-10 w-[90%] mx-auto">
         <h1 className="text-primary font-medium">Choose Categories</h1>
         <span className=" font-bold lg:text-3xl md:text-xl text-lg">
           Explore our art collection
@@ -28,7 +28,7 @@ if (isPending) {
           Art is something that can recharge your mind
         </p>
       </div>
-      <div className='w-full grid lg:grid-cols-6 grid-cols-2 md:grid-cols-3 row-auto items-center gap-10 my-10'>
+      <div className='w-[90%] mx-auto grid lg:grid-cols-6 grid-cols-2 md:grid-cols-3 row-auto items-center gap-10 my-10'>
         {
             categories.map(category => (
                 <div key={category._id} className='flex flex-col items-center gap-2'>

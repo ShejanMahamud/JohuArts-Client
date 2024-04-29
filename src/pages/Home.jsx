@@ -1,5 +1,6 @@
 import React, { createContext } from 'react';
 import Arts from '../components/Arts';
+import Frames from '../components/Frames';
 import Reviews from '../components/Reviews';
 import Speciality from '../components/Speciality';
 import Subcategories from '../components/Subcategories';
@@ -13,6 +14,7 @@ const Home = () => {
     <>
       <Banner/>
       <Speciality/>
+      <Frames/>
       <Subcategories/>
       <Arts/>
       <WhyUs/>

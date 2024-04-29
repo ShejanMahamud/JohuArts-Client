@@ -12,6 +12,7 @@ import ErrorPage from '../pages/ErrorPage';
 import Home from '../pages/Home';
 import Login from '../pages/Login';
 import MyArts from '../pages/MyArts';
+import Profile from '../pages/Profile';
 import Register from '../pages/Register';
 import UpdateArt from '../pages/UpdateArt';
 import PrivateRoute from '../private/PrivateRoute';
@@ -61,6 +62,10 @@ const Route = createBrowserRouter([
         path: '/category/:subcategory_name',
         loader: ({params})=> axios.get(`https://johuarts-backend.vercel.app/category/${params.subcategory_name}`),
         element: <ArtsByCategories/>
+      },
+      {
+        path: '/profile',
+        element: <Profile/>
       }
     ],
     errorElement: <ErrorPage/>

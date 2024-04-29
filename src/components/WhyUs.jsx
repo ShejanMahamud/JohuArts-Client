@@ -13,7 +13,7 @@ const WhyUs = () => {
     }, []);
 
   return (
-    <div className='w-full my-20 py-10 font-poppins' data-aos="fade-up">
+    <div className=" w-full my-20 py-10 font-poppins" data-aos="fade-up">
        <div className="flex flex-col items-start gap-2 w-[90%] mx-auto mb-10">
           <h1 className="text-primary font-medium">Why Us?</h1>
           <span className="text-gray-800 font-bold lg:text-3xl md:text-xl text-lg">

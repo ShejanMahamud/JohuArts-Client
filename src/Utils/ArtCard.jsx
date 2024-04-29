@@ -11,7 +11,7 @@ const ArtCard = ({art}) => {
 
 const navigate = useNavigate();
 
-const {image,item_name, subcategory_name,short_description,rating,customization,processing_time,stock_status,_id} = art;
+const {image,item_name, subcategory_name,short_description,rating,customization,processing_time,stock_status,_id,price} = art;
 
   useEffect(() => {
     Aos.init();
@@ -50,12 +50,12 @@ const {image,item_name, subcategory_name,short_description,rating,customization,
           </div>
       </div>
       <div className="w-full flex items-center justify-between mt-5">
-        {/* <span className="uppercase text-primary font-bold text-lg">
-          450 TAKA
-        </span> */}
+        <span className="uppercase text-primary font-bold text-lg">
+          $ {price}
+        </span>
         <button onClick={()=>{
             navigate(`/art/${_id}`)
-        }} className='w-full bg-primary text-white font-bold px-4 py-2 rounded-md uppercase hover:bg-transparent border border-primary hover:text-primary duration-300'>View Details</button>
+        }} className=' bg-primary text-white font-bold px-4 py-2 rounded-md uppercase hover:bg-transparent border border-primary hover:text-primary duration-300'>View Details</button>
       </div>
     </div>
     <Tooltip id='customize'/>

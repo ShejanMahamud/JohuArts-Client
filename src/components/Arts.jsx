@@ -1,11 +1,14 @@
 import React from 'react';
 import { TbPhotoOff } from "react-icons/tb";
+import { useNavigate } from 'react-router-dom';
 import useArts from '../hooks/useArts';
 import ArtCard from '../utils/ArtCard';
 
 const Arts = () => {
 
-const {data: arts,isPending} = useArts();
+const {data:arts,isPending} = useArts();
+
+const navigate = useNavigate();
 
 if (isPending) {
   return (
@@ -18,8 +21,8 @@ if (isPending) {
 }
 
   return (
-    <div className="w-full py-10 font-poppins">
-    <div className="flex items-center justify-between gap-2 w-[90%] mx-auto ">
+    <div className="w-full py-10 font-poppins bg-[url('shape-2.svg')] bg-no-repeat">
+    <div className="flex items-center justify-between gap-2 w-[90%] mx-auto mb-5">
       <div className="flex flex-col items-start gap-2 my-10">
       <h1 className="text-primary font-medium">Arts & Crafts Collection</h1>
       <span className=" font-bold lg:text-3xl md:text-xl text-lg">
@@ -29,11 +32,14 @@ if (isPending) {
         Our arts always tells a story.
       </p>
       </div>
+      <button onClick={()=>{
+        navigate('/all_arts')
+      }} className='border border-primary text-primary rounded-full px-4 py-2 text-sm hover:bg-primary duration-500 hover:text-white'>See All</button>
     </div>
     <div className="w-[90%] mx-auto grid lg:grid-cols-2 grid-cols-1 row-auto items-stretch gap-10">
       {
         arts.length !== 0 ? 
-          arts.map(art => <ArtCard art={art}/>)
+        arts.slice(0,6).map(art => <ArtCard art={art}/>)
         : 
         <div className="w-full flex items-center justify-center flex-col gap-5 col-span-2">
               <TbPhotoOff className="text-5xl text-primary" />

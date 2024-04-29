@@ -12,7 +12,7 @@ const {subcategory_name} = useParams();
 
 
   return (
-    <div className='w-[90%] mx-auto py-20 font-poppins'>
+    <div className="w-[90%] mx-auto py-20 font-poppins">
       <div
         onClick={() => navigate("/")}
         className="flex items-center w-full mx-auto mb-10 cursor-pointer"
@@ -31,7 +31,7 @@ const {subcategory_name} = useParams();
           Art is something that can recharge your mind
         </p>
       </div>
-      <div className='w-full grid grid-cols-2 row-auto items-center gap-10 my-20'>
+      <div className='w-full grid lg:grid-cols-2 grid-cols-1 row-auto items-center gap-10 my-20'>
         {
             data.length !== 0 ? data.map(art => <ArtCard key={art._id} art={art}/>)
             : 
