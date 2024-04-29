@@ -87,7 +87,7 @@ useEffect(()=>{
               <option>No</option>
             </select>
           </div>
-          {dataFetched && myArts.length === 0 ? (
+          {myArts.length === 0 ? (
             <div className="w-full flex items-center justify-center flex-col gap-5">
               <TbPhotoOff className="text-5xl text-primary" />
               <span className="font-bold text-3xl">No Arts Found!</span>

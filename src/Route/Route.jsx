@@ -13,8 +13,8 @@ import Home from '../pages/Home';
 import Login from '../pages/Login';
 import MyArts from '../pages/MyArts';
 import Register from '../pages/Register';
-import UpdateArt from './../pages/UpdateArt';
-import PrivateRoute from './../private/PrivateRoute';
+import UpdateArt from '../pages/UpdateArt';
+import PrivateRoute from '../private/PrivateRoute';
 
 const Route = createBrowserRouter([
   {

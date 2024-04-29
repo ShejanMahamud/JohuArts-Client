@@ -13,7 +13,7 @@ const WhyUs = () => {
     }, []);
 
   return (
-    <div className='w-full bg-[#F5F5F5] my-20 py-10 font-poppins' data-aos="fade-up">
+    <div className='w-full my-20 py-10 font-poppins' data-aos="fade-up">
        <div className="flex flex-col items-start gap-2 w-[90%] mx-auto mb-10">
           <h1 className="text-primary font-medium">Why Us?</h1>
           <span className="text-gray-800 font-bold lg:text-3xl md:text-xl text-lg">
@@ -25,7 +25,7 @@ const WhyUs = () => {
         </div>
         <div className="w-[90%] mx-auto grid grid-cols-1 grid-rows-6 gap-10 lg:grid-cols-3 lg:grid-rows-2 md:grid-cols-2 md:grid-rows-3">
   {/* 1st card */}
-  <div className="flex flex-col gap-3 items-center text-center shadow-xl px-8 py-8 rounded-xl bg-white hover:shadow-sm" data-aos="fade-up">
+  <div className="flex flex-col gap-3 items-center text-center shadow-xl px-8 py-8 rounded-xl   hover:shadow-sm" data-aos="fade-up">
     <div className="h-16 w-16 bg-[#9848FF] flex items-center justify-center rounded-xl shadow-voilet-shadow">
     <LuLassoSelect className='text-white text-3xl'/>
     </div>
@@ -35,7 +35,7 @@ const WhyUs = () => {
     </p>
   </div>
   {/* 2nd card */}
-  <div className="flex flex-col gap-3 items-center text-center border border-para border-opacity-10 px-8 py-8 rounded-xl bg-white hover:shadow-xl" data-aos="fade-up">
+  <div className="flex flex-col gap-3 items-center text-center border border-para border-opacity-10 px-8 py-8 rounded-xl   hover:shadow-xl" data-aos="fade-up">
     <div className="h-16 w-16 bg-[#A7CE4A] flex items-center justify-center rounded-xl shadow-light-green">
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -56,7 +56,7 @@ const WhyUs = () => {
     </p>
   </div>
   {/* 3rd card */}
-  <div className="flex flex-col gap-3 items-center text-center border border-para border-opacity-10 px-8 py-8 rounded-xl bg-white hover:shadow-xl" data-aos="fade-up">
+  <div className="flex flex-col gap-3 items-center text-center border border-para border-opacity-10 px-8 py-8 rounded-xl   hover:shadow-xl" data-aos="fade-up">
     <div className="h-16 w-16 bg-[#4D93DF] flex items-center justify-center rounded-xl shadow-light-blue">
       <TbTransactionDollar className='text-white text-3xl'/>
     </div>
@@ -66,7 +66,7 @@ const WhyUs = () => {
     </p>
   </div>
   {/* 4th card */}
-  <div className="flex flex-col gap-3 items-center text-center border border-para border-opacity-10 px-8 py-8 rounded-xl bg-white hover:shadow-xl" data-aos="fade-up">
+  <div className="flex flex-col gap-3 items-center text-center border border-para border-opacity-10 px-8 py-8 rounded-xl   hover:shadow-xl" data-aos="fade-up">
     <div className="h-16 w-16 bg-[#FF60A8] flex items-center justify-center rounded-xl shadow-light-pink">
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -87,7 +87,7 @@ const WhyUs = () => {
     </p>
   </div>
   {/* 5th card */}
-  <div className="flex flex-col gap-3 items-center text-center border border-para border-opacity-10 px-8 py-8 rounded-xl bg-white hover:shadow-xl" data-aos="fade-up">
+  <div className="flex flex-col gap-3 items-center text-center border border-para border-opacity-10 px-8 py-8 rounded-xl   hover:shadow-xl" data-aos="fade-up">
     <div className="h-16 w-16 bg-[#F66742] flex items-center justify-center rounded-xl shadow-light-orange">
       <HiBolt className='text-white text-3xl'/>
     </div>
@@ -97,7 +97,7 @@ const WhyUs = () => {
     </p>
   </div>
   {/* 6th card */}
-  <div className="flex flex-col gap-3 items-center text-center border border-para border-opacity-10 px-8 py-8 rounded-xl bg-white hover:shadow-xl" data-aos="fade-up">
+  <div className="flex flex-col gap-3 items-center text-center border border-para border-opacity-10 px-8 py-8 rounded-xl   hover:shadow-xl" data-aos="fade-up">
     <div className="h-16 w-16 bg-[#FFCF59] flex items-center justify-center rounded-xl shadow-light-yellow">
       <svg
         xmlns="http://www.w3.org/2000/svg"
