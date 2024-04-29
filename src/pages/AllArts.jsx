@@ -38,8 +38,8 @@ if (isPending) {
           We always try to provide the best art.
         </p>
       </div>
-      <div className="w-[90%] mx-auto my-20">
-  <table className="lg:table md:table lg:flex md:flex items-center justify-center hidden">
+      <div className="w-[90%] mx-auto my-20 overflow-x-auto">
+  <table className="table">
     <thead>
       <tr>
         <th>Art Details</th>
@@ -83,7 +83,7 @@ if (isPending) {
 }
     </tbody>  
   </table>
-  <div className="overflow-x-auto lg:hidden">
+  <div className="overflow-x-auto hidden">
   <table className="table">
     {/* head */}
     <thead>

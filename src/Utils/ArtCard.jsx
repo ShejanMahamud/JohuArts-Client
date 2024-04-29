@@ -19,7 +19,7 @@ const {image,item_name, subcategory_name,short_description,rating,customization,
 }, []);
 
   return (
-    <div className="w-full border border-gray-400 border-opacity-50 rounded-md px-5 py-5 flex lg:flex-row flex-col md:flex-row lg:gap-10 md:gap-10 gap-5 items-center justify-between relative group font-poppins" data-aos="fade-up">
+    <div className="w-full border border-gray-400 border-opacity-50 rounded-md px-5 py-5 flex lg:flex-row flex-col md:flex-row lg:gap-10 md:gap-10 gap-8 items-center justify-between relative group font-poppins flex-1" data-aos="fade-up">
     <div id="frame" className="w-full overflow-hidden h-[300px]">
         <img
           src={image}
@@ -29,7 +29,7 @@ const {image,item_name, subcategory_name,short_description,rating,customization,
         />
     </div>
     <div className="w-full mt-5 flex flex-col justify-between">
-      <h1 className="font-semibold text-xl">{item_name}</h1>
+      <h1 className="font-semibold text-xl mb-1">{item_name}</h1>
       <span className="text-xs mb-3">{subcategory_name}</span>
       <p className="text-sm mt-3 mb-5">{short_description}</p>
       <div className="flex items-center gap-x-5 gap-y-3 flex-wrap">
@@ -55,7 +55,7 @@ const {image,item_name, subcategory_name,short_description,rating,customization,
         </span>
         <button onClick={()=>{
             navigate(`/art/${_id}`)
-        }} className=' bg-primary text-white font-bold px-4 py-2 rounded-md uppercase hover:bg-transparent border border-primary hover:text-primary duration-300'>View Details</button>
+        }} className=' bg-primary text-white font-bold px-2 py-2 rounded-md uppercase hover:bg-transparent border border-primary hover:text-primary duration-300 text-xs'>View Details</button>
       </div>
     </div>
     <Tooltip id='customize'/>

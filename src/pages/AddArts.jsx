@@ -180,6 +180,8 @@ const navigate = useNavigate();
               placeholder="* UserName"
               defaultValue={user?.displayName}
               required
+              disabled
+              data-tooltip-id="name" data-tooltip-content={`You can't change name!`}
             />
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -204,10 +206,11 @@ const navigate = useNavigate();
         </div>
       </div>
 
-      <button className="uppercase bg-primary text-white font-bold text-lg px-5 py-3 rounded-md">
-        Submit Art
+      <button className="uppercase bg-primary text-white font-bold text-base px-4 py-3 rounded-md">
+      Add Art
       </button>
       <Tooltip id="email"/>
+      <Tooltip id="name"/>
     </form>
   );
 };
