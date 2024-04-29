@@ -7,7 +7,7 @@ const ErrorPage = () => {
 const navigate = useNavigate();
 
   return (
-    <div className='w-full min-h-screen flex flex-col items-center font-poppins'>
+    <div className="bg-[url('https://i.ibb.co/q16yvBh/Group-10.png')] bg-transparent bg-center bg-cover w-full min-h-screen flex flex-col items-center font-poppins">
       <Helmet>
       <title>404 | Not Found</title>
         <link rel="canonical" href="https://johuarts.netlify.app/" />

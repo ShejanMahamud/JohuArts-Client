@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import toast from "react-hot-toast";
-import { FaGoogle } from "react-icons/fa";
 import { FaGithubAlt } from "react-icons/fa6";
+import { FcGoogle } from "react-icons/fc";
 import { IoEye, IoEyeOff } from "react-icons/io5";
 import { useLocation, useNavigate } from "react-router-dom";
 import useAuth from "./../hooks/useAuth";
@@ -42,75 +42,19 @@ const Login = () => {
   }, []);
 
   return (
-    <div className="w-full grid lg:grid-cols-2 md:grid-cols-2 grid-cols-1 row-auto items-center gap-10 border-t border-b border-[#CDD6E1] font-poppins">
-      <div className="w-full bg-primary min-h-screen bg-[url('https://i.ibb.co/qdgQrt1/login-2.png')] bg-no-repeat bg-contain bg-center pt-10 lg:flex md:flex items-center justify-center hidden">
-        {/* <Swiper
-        pagination={{
-          dynamicBullets: true,
-        }}
-        modules={[Pagination]}
-        className="loginSwiper"
-      >
-        <SwiperSlide>
-          <div className="w-[50%] mx-auto">
-            <img
-              src="https://i.ibb.co/6gh94sW/login-1.jpg"
-              alt="login.jpg"
-              className="w-full mb-3"
-              style={{ borderRadius: "50px 50px 10px 50px" }}
-            />
-            <h1 className="text-center text-white font-bold lg:text-2xl md:text-xl mb-5">
-              Find Your Perfect Cottage With JohuHousing
-            </h1>
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div className="w-[50%] mx-auto">
-            <img
-              src="https://i.ibb.co/6gh94sW/login-1.jpg"
-              alt="login.jpg"
-              className="w-full h-full mb-3"
-              style={{ borderRadius: "50px 50px 10px 50px" }}
-            />
-            <h1 className="text-center text-white font-bold lg:text-2xl md:text-xl">
-              Find Your Perfect Place With JohuHousing
-            </h1>
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div className="w-[50%] mx-auto">
-            <img
-              src="https://i.ibb.co/6gh94sW/login-1.jpg"
-              alt="login.jpg"
-              className="w-full mb-3 h-full"
-              style={{ borderRadius: "50px 50px 10px 50px" }}
-            />
-            <h1 className="text-center text-white font-bold lg:text-2xl md:text-xl">
-              Find Your Apartments With JohuHousing
-            </h1>
-          </div>
-        </SwiperSlide>
-      </Swiper> */}
+    <div className="w-[80%] mx-auto grid lg:grid-cols-2 md:grid-cols-1 grid-cols-1 row-auto items-center gap-10 font-poppins">
+      <div className="w-full lg:flex items-center justify-center py-20 hidden">
+        <img src="https://i.ibb.co/qdgQrt1/login-2.png" alt="" className="w-96"/>
       </div>
-      <div className="w-full h-full flex flex-col items-center justify-center lg:pt-20 py-10 md:pt-20">
+      <div className="w-full flex flex-col items-center justify-center py-10  rounded-lg my-10">
         {/* <div className="bg-[#E3B57766] rounded-full w-20 h-20 mx-auto flex items-center justify-center p-3 border border-[#E3B57780] mb-5">
           <img src="logo.png" alt="logo.png" className="p-1" />
         </div> */}
-        <h1 className="text-3xl font-bold mb-1 font-poppins">
-          Login to JohuCoffee
+        <h1 className="lg:text-3xl text-2xl font-bold font-poppins uppercase mb-5">
+          Login To JohuArt
         </h1>
-        <p className="font-medium text-[#737D8C] mb-10 font-raleway text-sm">
-          Not Registered?{" "}
-          <span
-            className="text-gray-800 hover:underline"
-            onClick={() => navigate("/register")}
-          >
-            {" "}
-            Register Here
-          </span>
-        </p>
-        <form className="flex flex-col items-center justify-center w-full  gap-5">
-          <label className="input input-bordered flex items-center gap-2 lg:w-[60%] md:w-[70%] w-[80%] mx-auto">
+        <form className="flex flex-col items-center justify-center w-full gap-5">
+          <label className="input input-bordered flex items-center gap-2 lg:w-[80%] md:w-[70%] w-[80%] mx-auto">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 16 16"
@@ -129,7 +73,7 @@ const Login = () => {
               required
             />
           </label>
-          <label className="input input-bordered flex items-center gap-2 lg:w-[60%] md:w-[70%] w-[80%] mx-auto">
+          <label className="input input-bordered flex items-center gap-2 lg:w-[80%] md:w-[70%] w-[80%] mx-auto">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 16 16"
@@ -157,31 +101,40 @@ const Login = () => {
           </label>
           <button
             type="submit"
-            className="lg:w-[60%] md:w-[70%] w-[80%] mx-auto bg-primary px-10 py-2 rounded-md text-white font-bold"
+            className="lg:w-[80%] md:w-[70%] w-[80%] mx-auto bg-primary px-10 py-2 rounded-md text-white font-bold"
           >
             LOGIN
           </button>
-          <p className="font-medium text-[#737D8C] mb-3 font-raleway text-xs">By continuing, you agree JohuArt's<span className="text-gray-800 hover:underline" onClick={()=>navigate('/register')}> Terms of Service and Privacy Policy.</span></p>
+          <p className="w-[80%] lg:w-[80%] md:w-[70%] mx-auto font-medium text-[#737D8C] mb-3 font-raleway text-xs">By continuing, you agree JohuArt's<span className="text-gray-800 hover:underline" onClick={()=>navigate('/')}> Terms of Service and Privacy Policy.</span></p>
         </form>
-        <div className="w-full">
-          <div className="w-[60%] mx-auto flex items-center gap-5">
+        <div className="w-full flex flex-col items-center justify-center">
+          <div className="w-[60%] mx-auto flex items-center gap-5 my-2">
             <hr className="border border-[#CBD1DC] w-full border-opacity-50" />
             <h1 className="text-[#737D8C] font-medium">Or</h1>
             <hr className="border border-[#CBD1DC] w-full border-opacity-50" />
           </div>
           <div className="w-[60%] mx-auto flex flex-col items-center gap-2 my-3">
             <div className="flex items-center gap-5">
-              <button className="bg-primary rounded-md px-3 py-3 flex items-center gap-3">
-                <FaGoogle
+              <button className="bg-gray-100 rounded-full px-3 py-3 flex items-center gap-3">
+                <FcGoogle
                   onClick={handleGoogleLogin}
-                  className="lg:text-xl text-3xl text-white"
+                  className="text-2xl"
                 />
               </button>
-              <button onClick={handleGithubLogin} className="bg-primary rounded-md px-3 py-3 flex items-center gap-3">
-                <FaGithubAlt className="lg:text-xl text-3xl text-white" />
+              <button onClick={handleGithubLogin} className="bg-gray-100 rounded-full px-3 py-3 flex items-center gap-3">
+                <FaGithubAlt className="text-2xl" />
               </button>
             </div>
           </div>
+          <p className="font-medium text-[#737D8C] mb-10 font-raleway text-sm py-3">
+          Not Registered?
+          <span
+            className="text-gray-800 hover:underline"
+            onClick={() => navigate("/register")}
+          >
+            Register Here
+          </span>
+        </p>
         </div>
       </div>
     </div>

@@ -170,7 +170,7 @@ const Navbar = () => {
   user && <div className="dropdown dropdown-end flex items-center lg:gap-2 md:gap-2 gap-1" >
   <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
     <div className="lg:w-12 md:w-12 w-10 rounded-full border-2 border-primary" data-tooltip-id="name" data-tooltip-content={user?.displayName}>
-      <img alt="user.png" src={user?.photoURL || 'https://i.ibb.co/80vFzLZ/login-2.jpg'} />
+      <img alt="user.png" src={user?.photoURL || 'https://i.ibb.co/W56bzX2/image-asset.jpg'} />
     </div>
   </div>
   <ul tabIndex={0} className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52 relative top-10">
