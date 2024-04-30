@@ -10,7 +10,7 @@ import useAuth from '../hooks/useAuth';
 
 const Navbar = () => {
   const navigate = useNavigate();
-  const [theme, setTheme] = useState('light')
+  const [theme, setTheme] = useState(localStorage.getItem('theme') || 'light')
 
   const handleToggle = e => {
     if (e.target.checked) {

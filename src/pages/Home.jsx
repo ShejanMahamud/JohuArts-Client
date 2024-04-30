@@ -1,4 +1,4 @@
-import React, { createContext } from 'react';
+import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import AboutUs from '../components/AboutUs';
 import Artists from '../components/Artists';
@@ -9,7 +9,6 @@ import Speciality from '../components/Speciality';
 import Subcategories from '../components/Subcategories';
 import WhyUs from '../components/WhyUs';
 import Banner from './../components/Banner';
-export const DataContext = createContext(null)
 
 const Home = () => {
 

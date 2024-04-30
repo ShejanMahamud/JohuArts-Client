@@ -2,7 +2,7 @@ import React from 'react'
 
 const NewsLetter = () => {
   return (
-    <div className="my-20 lg:w-[70%] md:w-[70%] w-[90%] mx-auto font-poppins grid lg:grid-cols-2 grid-cols-1 md:grid-cols-2 row-auto items-center lg:gap-10 md:gap-10 rounded-lg shadow-xl py-5">
+    <div className="my-20 lg:w-[80%] md:w-[80%] w-[90%] mx-auto font-poppins grid lg:grid-cols-2 grid-cols-1 md:grid-cols-2 row-auto items-center lg:gap-10 md:gap-10 rounded-lg py-5 border border-gray-200">
         <div className="m-5 rounded-lg w-full">
             <img src="https://i.ibb.co/nw0pv0C/news.png" alt="" />
         </div>
