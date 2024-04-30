@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
+import { Helmet } from "react-helmet-async";
 import toast from "react-hot-toast";
 import { FaGithubAlt } from "react-icons/fa6";
 import { FcGoogle } from "react-icons/fc";
@@ -43,6 +44,10 @@ const Login = () => {
 
   return (
     <div className="w-[80%] mx-auto grid lg:grid-cols-2 md:grid-cols-1 grid-cols-1 row-auto items-center gap-10 font-poppins">
+      <Helmet>
+      <title>Login | JohuArts</title>
+        <link rel="canonical" href="https://johuarts.netlify.app/login" />
+      </Helmet>
       <div className="w-full lg:flex items-center justify-center py-20 hidden">
         <img src="https://i.ibb.co/qdgQrt1/login-2.png" alt="" className="w-96"/>
       </div>

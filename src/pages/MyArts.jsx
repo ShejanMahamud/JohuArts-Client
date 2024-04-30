@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Helmet } from "react-helmet-async";
 import { IoIosArrowRoundBack } from "react-icons/io";
 import { TbPhotoOff } from "react-icons/tb";
 import { useNavigate } from "react-router-dom";
@@ -36,6 +37,10 @@ const navigate = useNavigate();
 
   return (
     <>
+    <Helmet>
+      <title>My Arts | JohuArts</title>
+        <link rel="canonical" href="https://johuarts.netlify.app/my_arts" />
+      </Helmet>
       {dataFetched ? (
         <div className="flex items-center justify-center space-x-2 min-h-screen w-full">
           <div className="w-4 h-4 rounded-full animate-pulse dark:bg-primary bg-primary"></div>

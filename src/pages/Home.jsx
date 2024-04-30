@@ -1,4 +1,5 @@
 import React, { createContext } from 'react';
+import { Helmet } from 'react-helmet-async';
 import AboutUs from '../components/AboutUs';
 import Artists from '../components/Artists';
 import Arts from '../components/Arts';
@@ -14,6 +15,10 @@ const Home = () => {
 
   return (
     <>
+    <Helmet>
+      <title>JohuArts | Home</title>
+        <link rel="canonical" href="https://johuarts.netlify.app/" />
+      </Helmet>
       <Banner/>
       <Speciality/>
       <AboutUs/>

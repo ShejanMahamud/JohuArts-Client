@@ -1,4 +1,5 @@
 import React from 'react';
+import { Helmet } from 'react-helmet-async';
 import { IoIosArrowRoundBack } from "react-icons/io";
 import { useNavigate } from 'react-router-dom';
 import useArts from '../hooks/useArts';
@@ -20,6 +21,10 @@ if (isPending) {
 
   return (
     <div className="w-full py-20 font-poppins ">
+      <Helmet>
+      <title>All Arts | JohuArts</title>
+        <link rel="canonical" href="https://johuarts.netlify.app/all_arts" />
+      </Helmet>
       <div
         onClick={() => navigate("/")}
         className="flex items-center w-[90%] mx-auto mb-10 cursor-pointer"

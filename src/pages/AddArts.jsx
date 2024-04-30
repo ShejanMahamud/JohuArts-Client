@@ -1,5 +1,6 @@
 import axios from "axios";
 import React from "react";
+import { Helmet } from "react-helmet-async";
 import toast from "react-hot-toast";
 import { FaRegStar } from "react-icons/fa";
 import { FaPencil } from "react-icons/fa6";
@@ -65,6 +66,10 @@ const navigate = useNavigate();
       className="w-full py-20 font-poppins flex items-center flex-col"
       onSubmit={handleAddArt}
     >
+      <Helmet>
+      <title>Add Arts | JohuArts</title>
+        <link rel="canonical" href="https://johuarts.netlify.app/add_arts" />
+      </Helmet>
       <div
         onClick={() => navigate("/")}
         className="flex items-center w-[90%] mx-auto mb-10 cursor-pointer"

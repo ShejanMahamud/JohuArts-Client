@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Helmet } from "react-helmet-async";
 import { BsCart2 } from "react-icons/bs";
 import { IoIosArrowRoundBack } from "react-icons/io";
 import { useLoaderData, useNavigate } from "react-router-dom";
@@ -25,7 +26,8 @@ const [userArtCount,setUserArtCount] = useState([])
     material,
     user_name,
     user_email,
-    user_photo
+    user_photo,
+    _id
   } = data;
 
   useEffect(()=>{
@@ -54,6 +56,10 @@ const [userArtCount,setUserArtCount] = useState([])
 
   return (
     <div className="w-[90%] mx-auto py-20 font-poppins">
+      <Helmet>
+      <title>{item_name} | JohuArts</title>
+        <link rel="canonical" href={`https://johuarts.netlify.app/${_id}`} />
+      </Helmet>
       <div
         onClick={() => navigate("/")}
         className="flex items-center w-full mx-auto mb-10 cursor-pointer"

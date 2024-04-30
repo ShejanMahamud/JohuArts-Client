@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React from 'react';
+import { Helmet } from 'react-helmet-async';
 import toast from 'react-hot-toast';
 import { useLoaderData } from 'react-router-dom';
 
@@ -53,6 +54,10 @@ const {image,item_name, subcategory_name,short_description,rating,customization,
       className="w-full py-20 font-poppins flex items-center flex-col bg-[url('https://i.postimg.cc/66FBrVVq/add-bg.png')] bg-no-repeat bg-cover bg-center"
       onSubmit={handleUpdateArt}
     >
+      <Helmet>
+      <title>Update Art | JohuArts</title>
+        <link rel="canonical" href={`https://johuarts.netlify.app/update/${_id}`} />
+      </Helmet>
       <div className="flex flex-col items-start gap-2 w-[90%] mx-auto mb-10">
         <h1 className="text-primary font-medium">Update {item_name}</h1>
         <span className="text-gray-800 font-bold lg:text-3xl md:text-xl text-lg">
@@ -113,6 +118,7 @@ const {image,item_name, subcategory_name,short_description,rating,customization,
   <select defaultValue={subcategory_name} name="subcategory" className="select select-bordered w-full ">
   <option disabled selected className="text-gray-400">Subcategory</option>
   <option>Landscape Painting</option>
+  <option>Portrait Drawing</option>
   <option>Watercolour Painting</option>
   <option>Oil Painting</option>
   <option>Charcoal Sketching</option>

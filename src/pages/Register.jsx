@@ -1,6 +1,7 @@
 import axios from "axios";
 import { updateProfile } from "firebase/auth";
 import React, { useEffect, useRef, useState } from "react";
+import { Helmet } from "react-helmet-async";
 import toast from "react-hot-toast";
 import { IoEye, IoEyeOff } from "react-icons/io5";
 import { MdOutlineInsertPhoto } from "react-icons/md";
@@ -72,6 +73,10 @@ const Register = () => {
 
   return (
     <div className="w-[80%] mx-auto grid lg:grid-cols-2 md:grid-cols-1 grid-cols-1 row-auto items-center gap-10 border-t border-b border-[#CDD6E1] font-poppins">
+      <Helmet>
+      <title>Register | JohuArts</title>
+        <link rel="canonical" href="https://johuarts.netlify.app/register" />
+      </Helmet>
       <div className="w-full lg:flex items-center justify-center py-20 hidden">
         <img
           src="https://i.ibb.co/7YSz5Ps/login-3.png"

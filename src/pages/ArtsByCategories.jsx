@@ -1,4 +1,5 @@
 import React from 'react';
+import { Helmet } from 'react-helmet-async';
 import { IoIosArrowRoundBack } from "react-icons/io";
 import { TbPhotoOff } from "react-icons/tb";
 import { useLoaderData, useNavigate, useParams } from 'react-router-dom';
@@ -13,6 +14,10 @@ const {subcategory_name} = useParams();
 
   return (
     <div className="w-[90%] mx-auto py-20 font-poppins">
+      <Helmet>
+      <title>{subcategory_name} | JohuArts</title>
+        <link rel="canonical" href={`https://johuarts.netlify.app/${subcategory_name}`} />
+      </Helmet>
       <div
         onClick={() => navigate("/")}
         className="flex items-center w-full mx-auto mb-10 cursor-pointer"
