@@ -1,9 +1,16 @@
-import React from 'react';
+import Aos from 'aos';
+import "aos/dist/aos.css";
+import React, { useEffect } from 'react';
 import { PiFrameCornersLight, PiMoneyLight, PiTelegramLogoLight } from "react-icons/pi";
-
 const Speciality = () => {
+
+  useEffect(() => {
+    Aos.init();
+    Aos.refresh();
+}, []); 
+
   return (
-    <div className='grid items-center lg:grid-cols-3 grid-cols-1 gap-10 row-auto w-[90%] mx-auto my-20 font-poppins lg:justify-items-center'>
+    <div className='grid items-center lg:grid-cols-3 grid-cols-1 gap-10 row-auto w-[90%] mx-auto my-20 font-poppins lg:justify-items-center' data-aos="fade-up">
         <div className='flex items-center gap-5'>
         <PiTelegramLogoLight className='text-6xl text-primary'/>
         <div className='flex flex-col items-start'>

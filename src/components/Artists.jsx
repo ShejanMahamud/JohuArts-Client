@@ -1,3 +1,5 @@
+import Aos from 'aos';
+import "aos/dist/aos.css";
 import React, { useEffect, useState } from 'react';
 import "swiper/css";
 import "swiper/css/navigation";
@@ -16,6 +18,11 @@ useEffect(()=>{
     })
 },[])
 
+useEffect(() => {
+  Aos.init();
+  Aos.refresh();
+}, []);
+
   return (
 <div className='w-full my-20 font-poppins'>
 <div className="flex items-center justify-between gap-2 w-[90%] mx-auto mb-5">
@@ -29,8 +36,7 @@ useEffect(()=>{
       </p>
       </div>
     </div>
-<div className="w-full">
-        <img src="https://i.ibb.co/TPjmCvy/man-2-removebg-preview.png" loading='lazy' alt="" className='hidden lg:inline-block'/>
+<div className="w-full" data-aos="fade-up">
         
         <Swiper
           modules={[Navigation]}

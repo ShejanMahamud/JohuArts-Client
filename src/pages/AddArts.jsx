@@ -123,6 +123,7 @@ const navigate = useNavigate();
           <select name="subcategory" className="select select-bordered w-full ">
   <option disabled selected className="text-gray-400">Subcategory</option>
   <option>Landscape Painting</option>
+  <option>Portrait Drawing</option>
   <option>Watercolour Painting</option>
   <option>Oil Painting</option>
   <option>Charcoal Sketching</option>

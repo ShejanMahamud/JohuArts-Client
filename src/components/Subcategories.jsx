@@ -1,7 +1,8 @@
-import React from 'react';
+import Aos from 'aos';
+import "aos/dist/aos.css";
+import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import useCategories from '../hooks/useCategories';
-
 const Subcategories = () => {
 
 const navigate = useNavigate();
@@ -17,8 +18,13 @@ if (isPending) {
   );
 }
 
+useEffect(() => {
+  Aos.init();
+  Aos.refresh();
+}, []);
+
   return (
-    <div className="bg-[url('shape-2.svg')] bg-no-repeat w-full bg-right-top py-10 font-poppins">
+    <div className="bg-[url('https://i.ibb.co/mHyFJ0C/shape-2.png')] bg-no-repeat w-full bg-right-top py-10 font-poppins" data-aos="fade-up">
         <div className="flex flex-col items-start gap-2 mb-10 w-[90%] mx-auto">
         <h1 className="text-primary font-medium">Choose Categories</h1>
         <span className=" font-bold lg:text-3xl md:text-xl text-lg">

@@ -21,7 +21,7 @@ if (isPending) {
 }
 
   return (
-    <div className="w-full py-10 font-poppins bg-[url('shape-2.svg')] bg-no-repeat">
+    <div className="w-full py-10 font-poppins bg-[url('https://i.ibb.co/mHyFJ0C/shape-2.png')] bg-no-repeat">
     <div className="flex items-center justify-between gap-2 w-[90%] mx-auto mb-5">
       <div className="flex flex-col items-start gap-2 my-10">
       <h1 className="text-primary font-medium">Arts & Crafts Collection</h1>

@@ -1,15 +1,21 @@
-import React from 'react';
+import Aos from 'aos';
+import "aos/dist/aos.css";
+import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 const AboutUs = () => {
 
 const navigate = useNavigate();
+useEffect(() => {
+  Aos.init();
+  Aos.refresh();
+}, []);
 
   return (
-    <div className=" bg-no-repeat bg-center bg-cover pt-20 font-poppins mb-20">
+    <div className="w-full my-20 font-poppins">
         <div className='w-[90%] mx-auto grid lg:grid-cols-2 grid-cols-1 row-auto items-center lg:gap-20 gap-10'>
-            <img src="https://i.ibb.co/N3QHwSm/man-removebg.png" alt="" className='w-full h-full object-cover lg:order-1 order-2'/>
-            <div className='w-full flex flex-col items-start gap-10 lg:order-2 order-1'>
+            <img src="https://i.ibb.co/N3QHwSm/man-removebg.png" alt="" className='w-full h-full object-cover lg:order-1 order-2' data-aos="zoom-in-right"/>
+            <div className='w-full flex flex-col items-start gap-10 lg:order-2 order-1' data-aos="zoom-in-left">
               <p className='text-xl font-medium '>About us</p>
                 <h1 className='text-4xl font-medium '><span className='bg-primary text-white'>Discover Artist's</span> Ideal Artwork</h1>
                 <p className='w-[90%] '>Experience the artistry of our talented creators across various mediums and styles. Elevate your space with art that speaks to you. Browse our collection and find the perfect artwork for your home or workspace.
