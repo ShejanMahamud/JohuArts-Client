@@ -6,6 +6,7 @@ import { Autoplay, Navigation } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 const Banner = () => {
+  
   return (
     <div className="w-full font-dmsans relative z-10">
       <Swiper

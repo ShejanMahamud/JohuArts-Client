@@ -13,7 +13,7 @@ const Login = () => {
   const inputRef = useRef(null);
   const location = useLocation();
   const from = location?.state ? location.state : "/";
-  const { googleLogin, githubLogin } = useAuth();
+  const { googleLogin, githubLogin,emailPassLogin } = useAuth();
 
   const handleGoogleLogin = () => {
     googleLogin()
@@ -38,6 +38,31 @@ const Login = () => {
     })
   }
 
+  const handleEmailPassLogin = (e) => {
+    e.preventDefault();
+  
+    const email = e.target.email.value;
+    const password = e.target.password.value;
+  
+    emailPassLogin(email,password)
+    .then(res => {
+      toast.success('Sucessfully logged in!')
+      e.target.reset();
+      setTimeout(()=>{
+        navigate(from);
+      },1000)
+      window.scroll(0,0);
+      
+    })
+    .catch(error =>{
+      if(error.code === 'auth/invalid-credential'){
+        toast.error('Email Password Wrong!');
+        return;
+      }
+      toast.error('Something went wrong!')
+    })
+  }
+
   useEffect(() => {
     inputRef.current.focus();
   }, []);
@@ -58,7 +83,7 @@ const Login = () => {
         <h1 className="lg:text-3xl text-2xl font-bold font-poppins uppercase mb-5">
           Login To JohuArt
         </h1>
-        <form className="flex flex-col items-center justify-center w-full gap-5">
+        <form onSubmit={handleEmailPassLogin} className="flex flex-col items-center justify-center w-full gap-5">
           <label className="input input-bordered flex items-center gap-2 lg:w-[80%] md:w-[70%] w-[80%] mx-auto">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -110,7 +135,7 @@ const Login = () => {
           >
             LOGIN
           </button>
-          <p className="w-[80%] lg:w-[80%] md:w-[70%] mx-auto font-medium text-[#737D8C] mb-3 font-raleway text-xs">By continuing, you agree JohuArt's<span className="text-gray-800 hover:underline" onClick={()=>navigate('/')}> Terms of Service and Privacy Policy.</span></p>
+          <p className="w-[80%] lg:w-[80%] md:w-[70%] mx-auto font-medium text-[#737D8C] mb-3 font-raleway text-xs">By continuing, you agree JohuArt's<span className=" hover:underline" onClick={()=>navigate('/')}> Terms of Service and Privacy Policy.</span></p>
         </form>
         <div className="w-full flex flex-col items-center justify-center">
           <div className="w-[60%] mx-auto flex items-center gap-5 my-2">
@@ -134,7 +159,7 @@ const Login = () => {
           <p className="font-medium text-[#737D8C] mb-10 font-raleway text-sm py-3">
           Not Registered?
           <span
-            className="text-gray-800 hover:underline"
+            className=" hover:underline"
             onClick={() => navigate("/register")}
           >
             Register Here

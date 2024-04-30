@@ -72,7 +72,7 @@ const Register = () => {
   }, []);
 
   return (
-    <div className="w-[80%] mx-auto grid lg:grid-cols-2 md:grid-cols-1 grid-cols-1 row-auto items-center gap-10 border-t border-b border-[#CDD6E1] font-poppins">
+    <div className="w-[80%] mx-auto grid lg:grid-cols-2 md:grid-cols-1 grid-cols-1 row-auto items-center gap-10 py-10 font-poppins">
       <Helmet>
       <title>Register | JohuArts</title>
         <link rel="canonical" href="https://johuarts.netlify.app/register" />
@@ -173,13 +173,14 @@ const Register = () => {
   <option disabled selected className="text-gray-400">Artist Type</option>
   <option>Landscape Artist</option>
   <option>Watercolour Artist</option>
+  <option>Portrait Artist</option>
   <option>Oil Painting Artist</option>
   <option>Charcoal Sketching Artist</option>
   <option>Cartoon Drawing Artist</option>
 </select>
           <div className="lg:w-[80%] md:w-[70%] w-[90%] mx-auto flex items-center justify-start gap-3">
             <input type="checkbox" name="terms" class="checkbox" />
-            <span className="text-gray-500">
+            <span className="">
               Accept our terms and conditions
             </span>
           </div>
@@ -189,13 +190,12 @@ const Register = () => {
           >
             REGISTER
           </button>
-          <p className="w-[90%] lg:w-[80%] md:w-[70%] mx-auto font-medium text-[#737D8C] mb-3 font-raleway text-xs">
+          <p className="w-[90%] lg:w-[80%] md:w-[70%] mx-auto font-medium  mb-3 font-raleway text-xs">
             By continuing, you agree JohuArt's
             <span
-              className="text-gray-800 hover:underline"
+              className=" hover:underline"
               onClick={() => navigate("/")}
             >
-              {" "}
               Terms of Service and Privacy Policy.
             </span>
           </p>
@@ -204,7 +204,7 @@ const Register = () => {
         <p className="font-medium text-[#737D8C] mb-10 font-raleway text-sm py-3">
           Already Registered?
           <span
-            className="text-gray-800 hover:underline"
+            className="hover:underline"
             onClick={() => navigate("/login")}> Login Here</span>
         </p>
       </div>

@@ -1,4 +1,4 @@
-import { GithubAuthProvider, GoogleAuthProvider, createUserWithEmailAndPassword, onAuthStateChanged, signInWithPopup, signOut, updateProfile } from 'firebase/auth';
+import { GithubAuthProvider, GoogleAuthProvider, createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from 'firebase/auth';
 import React, { createContext, useEffect, useState } from 'react';
 import { Toaster } from "react-hot-toast";
 import auth from './../config/firebase.config';
@@ -35,6 +35,10 @@ const profileUpdate = (name,photo) => {
   })
 }
 
+const emailPassLogin = (email,password) => {
+  return signInWithEmailAndPassword(auth,email,password)
+}
+
 useEffect(()=>{
     const unSubscribe = onAuthStateChanged(auth, currentUser => {
         setLoading(false)
@@ -43,7 +47,7 @@ useEffect(()=>{
     return () => unSubscribe();
 },[user,updateUser])
 
-const authInfo = {googleLogin,logOut,user,loading,emailPassRegister,githubLogin,profileUpdate,setUpdateUser,updateUser}
+const authInfo = {googleLogin,logOut,user,loading,emailPassRegister,githubLogin,profileUpdate,setUpdateUser,updateUser,emailPassLogin}
     
   return (
     <AuthContext.Provider value={authInfo}>
