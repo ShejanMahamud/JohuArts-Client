@@ -5,14 +5,13 @@ import { useLoaderData, useNavigate } from "react-router-dom";
 import { Tab, TabList, TabPanel, Tabs } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
 import { Tooltip } from "react-tooltip";
-import useMyArts from "../hooks/useMyArts";
 import ReviewStar from "./../utils/ReviewStar";
 
 const ArtDetails = () => {
   const navigate = useNavigate();
   const { data } = useLoaderData();
   const [isLoading, setIsLoading] = useState(true)
-  const {data: userArtCount,isPending} = useMyArts();
+const [userArtCount,setUserArtCount] = useState([])
   const {
     image,
     item_name,
@@ -35,9 +34,15 @@ const ArtDetails = () => {
     },1000)
   },[data])
 
+  useEffect(()=>{
+    fetch(`https://johuarts-backend.vercel.app/arts/${user_email}`)
+    .then(res => res.json())
+    .then(data => setUserArtCount(data))
+  },[])
+
   const previousPrice = Math.floor(Math.random() * 100) + 1;
 
-  if (isPending || isLoading) {
+  if (isLoading) {
     return (
       <div className="flex items-center justify-center space-x-2 min-h-screen w-full">
         <div className="w-4 h-4 rounded-full animate-pulse dark:bg-primary bg-primary"></div>
@@ -181,7 +186,7 @@ const ArtDetails = () => {
             <div className="flex items-center gap-5 my-10 lg:flex-row md:flex-row flex-col">
                 <div className="flex flex-col items-center gap-3">
                 <img src={user_photo || 'https://i.ibb.co/Lxvz266/user-1.png'} alt="user.png" className="h-40 w-40 rounded-full border-2 border-primary"/>
-                <p className="font-medium">{userArtCount.length} Products</p>
+                <p className="font-medium">{userArtCount && userArtCount.length} Arts</p>
                 </div>
                 <div className="flex flex-col lg:items-start md:items-start items-center gap-2">
                     <p className="font-medium">{user_name}</p>

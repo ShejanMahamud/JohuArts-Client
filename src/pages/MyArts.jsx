@@ -8,14 +8,12 @@ import MyArtCard from "../utils/MyArtCard";
 const MyArts = () => {
 
   const [myArts, setMyArts] = useState([]);
-  const [customize, setCustomize] = useState(null);
-  const [dataFetched, setDataFetched] = useState(false);
+  const [dataFetched, setDataFetched] = useState(true);
   const [updatedArts, setUpdatedArts] = useState(false)
   const {user} = useAuth();
 const navigate = useNavigate();
 
   useEffect(()=>{
-    setDataFetched(true);
     fetch(`https://johuarts-backend.vercel.app/arts/${user?.email}`)
     .then(res => res.json())
     .then(data => {
@@ -26,24 +24,13 @@ const navigate = useNavigate();
     })
   },[user,updatedArts])
 
-useEffect(()=>{
-  fetch(`https://johuarts-backend.vercel.app/customization/${customize}`)
-  .then(res => res.json())
-  .then(data => {
-    if(data.length >0){
-      setMyArts(data)
-    }else{
-      return <div className="flex items-center justify-center space-x-2 min-h-screen w-full">
-      <div className="w-4 h-4 rounded-full animate-pulse dark:bg-primary bg-primary"></div>
-      <div className="w-4 h-4 rounded-full animate-pulse dark:bg-primary bg-primary"></div>
-      <div className="w-4 h-4 rounded-full animate-pulse dark:bg-primary bg-primary"></div>
-    </div>
-    }
-  })
-},[customize])
 
   const handleCustomize = (e) => {
-    setCustomize(e.target.value)
+    fetch(`https://johuarts-backend.vercel.app/customization/${user?.email}/${e.target.value}`)
+  .then(res => res.json())
+  .then(data => {
+    setMyArts(data)
+  })
   }
   
 

@@ -33,7 +33,12 @@ if (isPending) {
             categories.map(category => (
                 <div key={category._id} className='flex flex-col items-center gap-2'>
             <div className='h-40 w-40 cursor-pointer overflow-hidden rounded-full border-2 border-primary'>
-            <img onClick={()=>navigate(`/category/${category?.subcategory_name}`)} src={category?.image} alt="categories.jpg" className='w-full h-full object-cover  hover:scale-110 duration-500 hover:grayscale'/>
+            <img onClick={()=>{
+              setTimeout(()=>{
+                navigate(`/category/${category?.subcategory_name}`)
+              },1000);
+              window.scroll(0,0)
+            }} src={category?.image} alt="categories.jpg" className='w-full h-full object-cover  hover:scale-110 duration-500 hover:grayscale'/>
             </div>
             <h1 className='font-medium text-base text-center'>{category?.subcategory_name}</h1>
             <p className='text-primary text-sm font-medium'>{category?.art_count} Arts</p>

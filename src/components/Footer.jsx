@@ -1,7 +1,9 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink, useNavigate } from 'react-router-dom';
 
 const Footer = () => {
+
+const navigate = useNavigate();
 
   return (
     <footer className="w-full bg-[#FF5733] md:px-10 px-5 lg:px-40 py-5 flex flex-col gap-8 bg-opacity-5 font-poppins">
@@ -32,19 +34,19 @@ const Footer = () => {
         <div>
           <h1 className=" text-xl font-semibold mb-4">Our Services</h1>
           <ul className="flex flex-col gap-2  font-medium">
-            <li><a href="">Sell</a></li>
-            <li><a href="">Buy</a></li>
-            <li><a href="">Add Art</a></li>
-            <li><a href="">Art Competition</a></li>
+            <li><a href="/add_arts">Sell</a></li>
+            <li><a href="/all_arts">Buy</a></li>
+            <li><a href="/add_arts">Add Art</a></li>
+            <li><a href="/">Art Competition</a></li>
           </ul>
         </div>
         <div>
           <h1 className="text-xl font-semibold mb-4">Help</h1>
           <ul className="flex flex-col gap-2 font-medium">
-            <li><a href="">FAQ</a></li>
-            <li><a href="">About Us</a></li>
-            <li><a href="">Contact Us</a></li>
-            <li><a href="">Privacy POlicy</a></li>
+            <li><a href="/faq">FAQ</a></li>
+            <li><a href="/about-us">About Us</a></li>
+            <li><a href="/contact">Contact Us</a></li>
+            <li><a href="/policy">Privacy Policy</a></li>
           </ul>
         </div>
         <div className="flex flex-col gap-4 w-[70%] lg:w-full">
@@ -78,6 +80,7 @@ const Footer = () => {
               <hr className="h-[3px] w-full bg-[#494949] rounded-full opacity-30" />
             </div>
             <div className="flex items-center gap-6">
+              <Link to={'https://www.facebook.com'}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="24"
@@ -90,6 +93,8 @@ const Footer = () => {
                   fill="#494949"
                 />
               </svg>
+              </Link>
+              <Link to={'https://www.twitter.com'}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="24"
@@ -102,6 +107,8 @@ const Footer = () => {
                   fill="#494949"
                 />
               </svg>
+              </Link>
+              <Link to={'https://www.instagram.com'}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="24"
@@ -114,6 +121,7 @@ const Footer = () => {
                   fill="#494949"
                 />
               </svg>
+              </Link>
             </div>
           </div>
         </div>

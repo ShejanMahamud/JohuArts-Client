@@ -4,7 +4,7 @@ import toast from "react-hot-toast";
 import { FaRegStar } from "react-icons/fa";
 import { FaPencil } from "react-icons/fa6";
 import { IoIosArrowRoundBack } from "react-icons/io";
-import { IoImageOutline, IoPricetagOutline, IoTimeOutline } from "react-icons/io5";
+import { IoHammerOutline, IoImageOutline, IoPricetagOutline, IoTimeOutline } from "react-icons/io5";
 import { MdOutlineTitle } from "react-icons/md";
 import { SlEnvolope } from "react-icons/sl";
 import { useNavigate } from "react-router-dom";
@@ -29,8 +29,10 @@ const navigate = useNavigate();
     const stock_status = e.target.stock.value;
     const user_name = e.target.username.value;
     const user_email = e.target.useremail.value;
+    const materials = e.target.materials.value;
+    const material = materials.split(',')
     const user_photo = user?.photoURL;
-    const art = {item_name,short_description,subcategory_name,price,rating,customization,processing_time,stock_status,user_name,user_email,image,user_photo}
+    const art = {item_name,short_description,subcategory_name,price,rating,customization,processing_time,stock_status,user_name,user_email,image,user_photo,material}
 
     if(customization === "Customizable Art?"){
       toast.error('Please select customization!');
@@ -46,7 +48,6 @@ const navigate = useNavigate();
       toast.error('Please select stock');
       return;
     }
-
     axios.post('https://johuarts-backend.vercel.app/arts',art)
     .then(res => {
       if(res.data.insertedId){
@@ -61,7 +62,7 @@ const navigate = useNavigate();
 
   return (
     <form
-      className="w-full py-20 font-poppins flex items-center flex-col bg-[url('https://i.postimg.cc/66FBrVVq/add-bg.png')] bg-no-repeat bg-cover bg-center"
+      className="w-full py-20 font-poppins flex items-center flex-col"
       onSubmit={handleAddArt}
     >
       <div
@@ -75,7 +76,7 @@ const navigate = useNavigate();
       </div>
       <div className="flex flex-col items-start gap-2 w-[90%] mx-auto mb-10">
         <h1 className="text-primary font-medium">Add Arts & Crafts</h1>
-        <span className="text-gray-800 font-bold lg:text-3xl md:text-xl text-lg">
+        <span className=" font-bold lg:text-3xl md:text-xl text-lg">
           Add Arts, Sell Art & Earn Profit
         </span>
         <p className="text-[#737D8C] w-[60%] text-sm">
@@ -161,6 +162,17 @@ const navigate = useNavigate();
               required
             />
             <IoTimeOutline className="text-primary text-xl opacity-70" />
+          </label>
+
+          <label class="input input-bordered flex items-center justify-between gap-2 mb-3">
+            <input
+              type="text"
+              class="py-5 grow"
+              name="materials"
+              placeholder="* Materials (Comma One After one)"
+              required
+            />
+            <IoHammerOutline className="text-primary text-xl opacity-70" />
           </label>
 
           <select name="stock" className="select select-bordered w-full" required>

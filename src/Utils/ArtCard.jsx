@@ -1,6 +1,4 @@
-import Aos from 'aos';
-import "aos/dist/aos.css";
-import React, { useEffect } from 'react';
+import React from 'react';
 import { FaStar } from "react-icons/fa";
 import { FaPaintRoller } from "react-icons/fa6";
 import { IoCheckmarkSharp, IoTimeOutline } from "react-icons/io5";
@@ -13,13 +11,8 @@ const navigate = useNavigate();
 
 const {image,item_name, subcategory_name,short_description,rating,customization,processing_time,stock_status,_id,price} = art;
 
-  useEffect(() => {
-    Aos.init();
-    Aos.refresh();
-}, []);
-
   return (
-    <div className="w-full border border-gray-400 border-opacity-50 rounded-md px-5 py-5 flex lg:flex-row flex-col md:flex-row lg:gap-10 md:gap-10 gap-8 items-center justify-between relative group font-poppins flex-1" data-aos="fade-up">
+    <div className="w-full border border-gray-400 border-opacity-50 rounded-md px-5 py-5 flex lg:flex-row flex-col md:flex-row lg:gap-10 md:gap-10 gap-8 items-center justify-between relative group font-poppins flex-1">
     <div id="frame" className="w-full overflow-hidden h-[300px]">
         <img
           src={image}
@@ -54,7 +47,10 @@ const {image,item_name, subcategory_name,short_description,rating,customization,
           $ {price}
         </span>
         <button onClick={()=>{
+           setTimeout(()=>{
             navigate(`/art/${_id}`)
+           },1000);
+           window.scroll(0,0)
         }} className=' bg-primary text-white font-bold px-2 py-2 rounded-md uppercase hover:bg-transparent border border-primary hover:text-primary duration-300 text-xs'>View Details</button>
       </div>
     </div>

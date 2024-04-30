@@ -33,7 +33,10 @@ if (isPending) {
       </p>
       </div>
       <button onClick={()=>{
-        navigate('/all_arts')
+        setTimeout(()=>{
+          navigate('/all_arts')
+        },1000);
+        window.scroll(0,0)
       }} className='border border-primary text-primary rounded-full px-4 py-2 text-sm hover:bg-primary duration-500 hover:text-white'>See All</button>
     </div>
     <div className="w-[90%] mx-auto grid lg:grid-cols-2 grid-cols-1 row-auto items-stretch gap-10">

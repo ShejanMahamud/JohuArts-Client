@@ -19,7 +19,7 @@ if (isPending) {
 }
 
   return (
-    <div className="w-full py-20 font-poppins bg-[url('https://i.postimg.cc/66FBrVVq/add-bg.png')] bg-no-repeat bg-cover bg-center">
+    <div className="w-full py-20 font-poppins ">
       <div
         onClick={() => navigate("/")}
         className="flex items-center w-[90%] mx-auto mb-10 cursor-pointer"
@@ -75,7 +75,10 @@ if (isPending) {
     <td>{art?.price}</td>
     <th>
       <button onClick={()=>{
-        navigate(`/art/${art?._id}`)
+        setTimeout(()=>{
+          navigate(`/art/${art?._id}`)
+        },1000);
+        window.scroll(0,0)
       }} className="bg-primary text-white font-medium uppercase text-xs px-2 py-1 rounded">details</button>
     </th>
   </tr>
