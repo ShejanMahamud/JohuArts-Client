@@ -3,7 +3,7 @@ import React from 'react'
 const NewsLetter = () => {
   return (
     <div className="my-20 lg:w-[70%] md:w-[70%] w-[90%] mx-auto font-poppins grid lg:grid-cols-2 grid-cols-1 md:grid-cols-2 row-auto items-center lg:gap-10 md:gap-10 rounded-lg shadow-xl py-5">
-        <div className="m-5 rounded-lg w-full bg-[url('https://i.ibb.co/NxnRmKj/cloud.png')] bg-left-top bg-no-repeat">
+        <div className="m-5 rounded-lg w-full">
             <img src="https://i.ibb.co/nw0pv0C/news.png" alt="" />
         </div>
         <div className='w-full px-10 flex flex-col items-start gap-8'>
