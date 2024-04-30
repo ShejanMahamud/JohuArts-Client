@@ -3,13 +3,10 @@ import "aos/dist/aos.css";
 import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
-import useArts from '../hooks/useMyArts';
 const MyArtCard = ({myArt,setUpdatedArts,updatedArts}) => {
 
 const navigate = useNavigate();
 const {image,item_name, subcategory_name,short_description,rating,customization,processing_time,stock_status,_id,price} = myArt;
-
-const {refetch} = useArts();
 
 const handleDelete = (id) => {
   Swal.fire({
@@ -28,7 +25,6 @@ const handleDelete = (id) => {
       .then(res => res.json())
       .then(data => {
         if(data.deletedCount > 0){
-          refetch();
           setUpdatedArts(!updatedArts)
           Swal.fire({
             title: "Deleted!",

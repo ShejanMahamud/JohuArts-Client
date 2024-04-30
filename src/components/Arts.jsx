@@ -42,7 +42,7 @@ if (isPending) {
     <div className="w-[90%] mx-auto grid lg:grid-cols-2 grid-cols-1 row-auto items-stretch gap-10">
       {
         arts.length !== 0 ? 
-        arts.slice(0,6).map(art => <ArtCard art={art}/>)
+        arts.slice(0,6).map(art => <ArtCard key={art._id} art={art}/>)
         : 
         <div className="w-full flex items-center justify-center flex-col gap-5 col-span-2">
               <TbPhotoOff className="text-5xl text-primary" />

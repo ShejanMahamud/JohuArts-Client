@@ -29,8 +29,8 @@ useEffect(()=>{
       </p>
       </div>
     </div>
-<div className="w-full lg:bg-[url('https://i.ibb.co/RN4VWCh/team-section.webp')] md:bg-[url('https://i.ibb.co/RN4VWCh/team-section.webp')] bg-no-repeat bg-cover bg-bottom grid lg:grid-cols-[20%_80%] grid-cols-1 row-auto items-center lg:pt-10 pt-5">
-        <img src="https://i.ibb.co/Q9fKPYL/man-2.webp" loading='lazy' alt="" className='hidden lg:inline-block'/>
+<div className="w-full">
+        <img src="https://i.ibb.co/TPjmCvy/man-2-removebg-preview.png" loading='lazy' alt="" className='hidden lg:inline-block'/>
         
         <Swiper
           modules={[Navigation]}
@@ -46,7 +46,7 @@ useEffect(()=>{
               spaceBetween: 30,
             },
             1024: {
-              slidesPerView: 4,
+              slidesPerView: 5,
               spaceBetween: 30,
             },
           }}
@@ -56,10 +56,10 @@ useEffect(()=>{
                    <div className='w-full grid grid-cols-5 row-auto items-center px-10 gap-5'> 
                     {
                 users && users.map(user => (
-                    <SwiperSlide> <div className='flex flex-col items-center text-center'>
+                    <SwiperSlide key={user.user_name}> <div className='flex flex-col items-center text-center'>
                 <img src={user?.user_photo || 'https://i.ibb.co/Lxvz266/user-1.png'}  loading='lazy' alt="" className='w-40 mb-3 rounded-full'/>
-                <h1 className='font-medium text-lg mb-3 text-gray-800'>{user?.user_name}</h1>
-                <p className='text-xs text-gray-600'>{user?.artist_type}</p>
+                <h1 className='font-medium text-lg mb-3'>{user?.user_name}</h1>
+                <p className='text-xs'>{user?.artist_type}</p>
             </div></SwiperSlide>
 
                 
