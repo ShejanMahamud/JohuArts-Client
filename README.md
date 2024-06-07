@@ -1,6 +1,6 @@
 # JohuArts - Arts & Crafts Web App
 
-<p>Buy, Hire Artist & Sell Arts with JohuArts</p>
+<p>Art Showcase Web App</p>
 
 # Key Features
 

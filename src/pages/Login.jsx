@@ -1,3 +1,4 @@
+import axios from 'axios';
 import React, { useEffect, useRef, useState } from "react";
 import { Helmet } from "react-helmet-async";
 import toast from "react-hot-toast";
@@ -18,10 +19,17 @@ const Login = () => {
   const handleGoogleLogin = () => {
     googleLogin()
       .then((res) => {
-        toast.success("Successfully Logged In!");
-        setTimeout(() => {
-          navigate(from);
-        }, 1000);
+        const email = res.user?.email
+        axios.post(`http://localhost:7284/jwt`,{email})
+      .then(res => {
+        if(res.data.success){
+          toast.success('Sucessfully logged in!')
+      setTimeout(()=>{
+        navigate(from);
+      },1000)
+      window.scroll(0,0);
+        }
+      })
       })
       .catch((error) => {
         toast.error("Something Went Wrong!");
@@ -46,13 +54,17 @@ const Login = () => {
   
     emailPassLogin(email,password)
     .then(res => {
-      toast.success('Sucessfully logged in!')
+      axios.post(`http://localhost:7284/jwt`,{email})
+      .then(res => {
+        if(res.data.success){
+          toast.success('Sucessfully logged in!')
       e.target.reset();
       setTimeout(()=>{
         navigate(from);
       },1000)
       window.scroll(0,0);
-      
+        }
+      })
     })
     .catch(error =>{
       if(error.code === 'auth/invalid-credential'){

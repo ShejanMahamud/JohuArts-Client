@@ -1,3 +1,4 @@
+import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { IoIosArrowRoundBack } from "react-icons/io";
@@ -15,19 +16,18 @@ const MyArts = () => {
 const navigate = useNavigate();
 
   useEffect(()=>{
-    fetch(`https://johuarts-backend.vercel.app/arts/${user?.email}`)
-    .then(res => res.json())
-    .then(data => {
+    axios.get(`http://localhost:7284/arts?email=${user?.email}`)
+    .then(res => {
       setTimeout(()=>{
         setDataFetched(false);
       },1000)
-      setMyArts(data);
+      setMyArts(res.data);
     })
-  },[user,updatedArts])
+  },[updatedArts])
 
 
   const handleCustomize = (e) => {
-    fetch(`https://johuarts-backend.vercel.app/customization/${user?.email}/${e.target.value}`)
+    fetch(`http://localhost:7284/arts?email=${user?.email}&customization=${e.target.value}`)
   .then(res => res.json())
   .then(data => {
     setMyArts(data)
