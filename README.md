@@ -1,25 +1,17 @@
 # JohuArts - Arts & Crafts Web App
 
-<p>Art Showcase Web App</p>
+<p>Explore and showcase artworks in a vibrant online gallery.</p>
 
 # Key Features
 
-> - User Authentication
-> - Social Login
-> - Email Password Login & Register
-> - Private Route
-> - LogOut
-> - User can't see arts details without login
-> - User can't update user profile without login
-> - User can't update user arts without login
-> - User can add arts
-> - User can delete arts
-> - User can update arts
-> - User can delete arts
-> - User can see his/her arts
-> - User can see all arts available in our shop
-> - Category Based Filter & Routing
-> - User can filter his arts based on customization
+> - User Authentication with social login options and email/password login & register.
+> - Private Routes for authenticated users.
+> - Logout functionality.
+> - Users must login to view art details, update their profile, or manage their artworks.
+> - Art Management: Add, update, and delete artworks.
+> - View personal artworks and all available artworks in the shop.
+> - Category-based filtering and routing.
+> - Customization filters for user artworks.
 
 # NPM Packages Used
 
@@ -44,6 +36,12 @@
 ![expressJS](https://img.shields.io/badge/EXPRESS-3C873A?style=for-the-badge&logo=express&logoColor=white)
 ![MongoDB](https://img.shields.io/badge/MONGODB-4DB33D?style=for-the-badge&logo=mongodb&logoColor=white)
 ![NodeJS](https://img.shields.io/badge/NODEJS-3C873A?style=for-the-badge&logo=nodedotjs&logoColor=white)
+
+# Problem Faced and Solution
+
+**Problem**: Implementing secure user authentication and authorization for managing artworks and profiles.
+
+**Solution**: Utilized Firebase Authentication for robust user authentication, enabling both social login options and email/password-based login and registration. Implemented private routes in React to ensure that only authenticated users can access specific pages like managing artworks or updating profiles. This approach ensured security and user privacy while maintaining a seamless user experience.
 
 # Live Link
 
